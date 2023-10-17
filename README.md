@@ -15,5 +15,8 @@ Currently 24 different bevel bump map variations exist for the user to choose fr
 
 ![image](https://github.com/LinuxBeaver/GIMP_Misc_Bevel_Collection_super_pluginWORK_IN_PROGRESS/assets/78667207/ade1daef-12d4-4375-abd2-908a5948afa0)
 
+## A bevel that only bevels edges
+![image](https://github.com/LinuxBeaver/GIMP_Misc_Bevel_Collection_super_pluginWORK_IN_PROGRESS/assets/78667207/f59fc39f-5293-4389-9c86-6bc4b216300c)
+
 
 .. this thread will be updated later
