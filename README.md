@@ -28,6 +28,9 @@ C:\Users\USERNAME\AppData\Local\gegl-0.4\plug-ins
 
 
 ## Compiling and Installing
+
+**Click the thing build_X to compile all 15 binaries at once.** or compile individually like this...
+
 **Linux**
 
 To compile and install you will need the GEGL header files (libgegl-dev on Debian based distributions or gegl on Arch Linux) and meson (meson on most distributions).
