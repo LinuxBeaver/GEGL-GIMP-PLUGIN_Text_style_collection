@@ -1,0 +1,18 @@
+#GEGL Syntax goes here
+
+ 
+color-overlay value=#f587ff median-blur  percentile=20 alpha-percentile=30
+
+gaussian-blur std-dev-x=2 std-dev-y=2
+id=3
+screen aux=[ ref=3  emboss  type=bumpmap azimuth=90  elevation=15 ] 
+
+gaussian-blur std-dev-x=2 std-dev-y=2
+id=3
+screen aux=[ ref=3  emboss  type=bumpmap azimuth=90  elevation=15 ] 
+
+screen aux=[ ref=3  emboss  type=bumpmap azimuth=90  elevation=15 ] 
+
+opacity value=10
+median-blur radius=0
+

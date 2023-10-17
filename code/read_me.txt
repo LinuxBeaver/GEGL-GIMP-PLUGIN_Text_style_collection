@@ -1,0 +1,1 @@
+_D means duplicate. Meaning the plugin exist elsewhere on Github but is a dependency for Bevel COllection. Said plugins that ship with bevel collection are high quality stand alones and are required for it to work.
