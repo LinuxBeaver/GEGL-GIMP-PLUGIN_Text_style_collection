@@ -117,6 +117,18 @@ Check which numbers correspond to what g graph
 #define g24 \
 " color-overlay value=white median-blur radius=8  alpha-percentile=20 gaussian-blur std-dev-x=2 std-dev-y=2 lb:threshold-alpha median-blur radius=8  alpha-percentile=20 gaussian-blur std-dev-x=2 std-dev-y=2 lb:threshold-alpha cubism tile-size=2 seed=442 id=x dst aux=[ ref=x median-blur radius=2  alpha-percentile=0 id=x2  ] color-overlay value=#ffffff cubism tile-size=10 seed=442 gaussian-blur std-dev-x=5 std-dev-y=5 id=1 gaussian-blur std-dev-x=6 std-dev-y=6 emboss  lb:threshold-alpha lb:threshold-alpha id=chocolate gimp:layer-mode layer-mode=grain-merge opacity=0.70 aux=[ ref=chocolate color-overlay value=#f579ff ] gimp:layer-mode layer-mode=split composite-space=auto aux=[ ref=1     ] opacity value=2 emboss depth=20 over aux=[ ref=x2  lb:innerglow value2=black radius=5  opacity value=0.65 ] over aux=[ ref=x2  color-overlay value=#f579ff opacity value=0.3 ] mean-curvature-blur  opacity value=2 softglow brightness=90 sharpness=90 glow-radius=50 softglow brightness=90 sharpness=90 glow-radius=40 median-blur radius=0 hue-chroma lightness=2 id=colorfrosting gimp:layer-mode layer-mode=hsl-color opacity=0.44 aux=[ ref=colorfrosting   median-blur radius=0 color-overlay  value=#ff0500 ] mean-curvature-blur iterations=3 lb:threshold-alpha dst-over aux=[ ref=x median-blur radius=40 alpha-percentile=100 color-overlay value=#934c00  cubism tile-size=12 gaussian-blur std-dev-x=2 std-dev-y=2  custom-bevel blendmode=Multiply ] saturation scale=1.25 median-blur radius=0 id=hslx gimp:layer-mode layer-mode=hsl-color composite-mode=auto aux=[ ref=hslx  id=melaniescake median-blur radius=0 gaussian-blur  std-dev-x=1.5 std-dev-y=1.5 median-blur radius=0 ] id=bottomcake  dst-over aux=[ ref=bottomcake id=bread dst-over aux=[ ref=bread color-overlay value=#ffc383   median-blur radius=25 alpha-percentile=100 id=texture gimp:layer-mode layer-mode=softlight opacity=0.84 composite-mode=auto aux=[ ref=texture noise-rgb noise-rgb noise-rgb noise-reduction iterations=1 ] id=recolorit gimp:layer-mode layer-mode=hsl-color aux=[ ref=recolorit color-overlay value=#ffd09f  ] ] median-blur radius=0  lb:extrusion behindextrusion=yes  center-x=0.083000000000000004  center-y=-2.6709999999999998  factor=0.014  depth=6 exposure=-0.97099999999999997  median-blur radius=0 id=lnburn gimp:layer-mode layer-mode=linear-burn composite-space=rgb-perceptual  opacity=0.011 aux=[ ref=lnburn ]  id=insidebread gimp:layer-mode layer-mode=normal opacity=0.08 aux=[ ref=insidebread noise-rgb noise-reduction iterations=1 ] ] median-blur radius=0 id=bevit gimp:layer-mode layer-mode=softlight opacity=0.34 composite-mode=auto aux=[ ref=bevit lb:bevel hue-chroma lightness=9 ] bloom strength=9 dropshadow  x=4.79 y=8.79 radius=8.14 grow-radius=0 color=#000000 opacity=1.04   "\
 
+
+#define g25 \
+" id=cookiecontainer src aux=[ ref=cookiecontainer id=x cubism tile-size=8 seed=442 dst aux=[ ref=x median-blur radius=2  alpha-percentile=0 id=x2  ] color-overlay value=#ffffff cubism tile-size=4 seed=442 gaussian-blur std-dev-x=5 std-dev-y=5 id=1 gaussian-blur std-dev-x=6 std-dev-y=6 emboss  xor aux=[ ref=1     ] opacity value=2 emboss depth=20 over aux=[ ref=x2  lb:innerglow value2=black radius=5  opacity value=0.65 ] over aux=[ ref=x2  color-overlay value=#747474 opacity value=0.3 ] mean-curvature-blur  opacity value=2 softglow brightness=90 sharpness=90 glow-radius=50 softglow brightness=90 sharpness=90 glow-radius=40 median-blur radius=0 id=topcreamcolor gimp:layer-mode layer-mode=multiply composite-mode=clip-to-backdrop aux=[ ref=topcreamcolor color value=#f0a479  ] id=chips src-atop aux=[ ref=chips lb:bokeh neighborhood=circle color=black amount=0.095000000000000001 seed=4214089293 size=5 opacity=0.90100000000000002 blur=2 ] id=chips src-atop aux=[ ref=chips lb:bokeh neighborhood=circle color=black amount=0.3 seed=76 size=3 opacity=0.90100000000000002 blur=2 ] id=chips src-atop aux=[ ref=chips lb:bokeh neighborhood=circle color=black amount=0.095000000000000001 seed=1736 size=3 opacity=0.90100000000000002 blur=2 ] id=chips src-atop aux=[ ref=chips id=chips src-atop aux=[ ref=chips lb:bokeh neighborhood=circle color=black amount=0.4 seed=1736 size=3 opacity=0.90100000000000002 blur=2 ] id=chips src-atop aux=[ ref=chips lb:bokeh neighborhood=circle color=black amount=34 seed=5335 size=3 opacity=0.90100000000000002 blur=2 ] id=chips src-atop aux=[ ref=chips lb:bokeh neighborhood=circle color=black amount=0.4 seed=52 size=3 opacity=0.90100000000000002 blur=2 ] ] lb:threshold-alpha dropshadow x=0 y=0 radius=4 grow-radius=0 opacity=1.84 dst-over aux=[ ref=x median-blur radius=40 alpha-percentile=100 color-overlay value=#96664a cubism tile-size=12 gaussian-blur std-dev-x=2 std-dev-y=2  custom-bevel blendmode=Multiply ] saturation scale=1.25 median-blur radius=0 id=hslx gimp:layer-mode layer-mode=hsl-color composite-mode=auto aux=[ ref=hslx  id=melaniescake median-blur radius=0 over aux=[ ref=melaniescake median-blur radius= percentile=0 opacity value=2 ] gaussian-blur  std-dev-x=1.5 std-dev-y=1.5 median-blur radius=0 ] id=bottomcake  dst-over aux=[ ref=bottomcake id=bread dst-over aux=[ ref=bread color-overlay value=#ffc383   median-blur radius=25 alpha-percentile=100 id=texture gimp:layer-mode layer-mode=softlight opacity=0.84 composite-mode=auto aux=[ ref=texture noise-reduction iterations=1 ] id=recolorit gimp:layer-mode layer-mode=hsv-hue opacity=0.40 aux=[ ref=recolorit color-overlay value=#fcd0ff ] ] median-blur radius=0  lb:extrusion behindextrusion=yes  center-x=0.083000000000000004  center-y=-2.6709999999999998  factor=0.014  depth=6 exposure=-0.97099999999999997  median-blur radius=0 id=lnburn gimp:layer-mode layer-mode=linear-burn composite-space=rgb-perceptual  opacity=0.012 aux=[ ref=lnburn ]  ] median-blur radius=0 id=bevit gimp:layer-mode layer-mode=softlight opacity=0.14 composite-mode=auto aux=[ ref=bevit lb:bevel hue-chroma lightness=9 ] bloom strength=9 dropshadow  x=4.79 y=.479 radius=8.14 grow-radius=0 color=#000000 opacity=1.04    "\
+
+#define g26 \
+" id=cookiecontainer src aux=[ ref=cookiecontainer id=x cubism tile-size=8 seed=442 dst aux=[ ref=x median-blur radius=2  alpha-percentile=0 id=x2  ] color-overlay value=#ffffff cubism tile-size=4 seed=442 gaussian-blur std-dev-x=5 std-dev-y=5 id=1 gaussian-blur std-dev-x=6 std-dev-y=6 emboss  xor aux=[ ref=1     ] opacity value=2 emboss depth=20 over aux=[ ref=x2  lb:innerglow value2=black radius=5  opacity value=0.65 ] over aux=[ ref=x2  color-overlay value=#747474 opacity value=0.3 ] mean-curvature-blur  opacity value=2 softglow brightness=90 sharpness=90 glow-radius=50 softglow brightness=90 sharpness=90 glow-radius=40 median-blur radius=0 id=topcreamcolor gimp:layer-mode layer-mode=multiply composite-mode=clip-to-backdrop aux=[ ref=topcreamcolor color value=#f0a479  ] id=chips src-atop aux=[ ref=chips lb:bokeh neighborhood=circle color=black amount=0.095000000000000001 seed=4214089293 size=5 opacity=0.90100000000000002 blur=2 ] id=chips src-atop aux=[ ref=chips lb:bokeh neighborhood=circle color=black amount=0.3 seed=76 size=3 opacity=0.90100000000000002 blur=2 ] id=chips src-atop aux=[ ref=chips lb:bokeh neighborhood=circle color=black amount=0.095000000000000001 seed=1736 size=3 opacity=0.90100000000000002 blur=2 ] id=chips src-atop aux=[ ref=chips id=chips src-atop aux=[ ref=chips lb:bokeh neighborhood=circle color=black amount=0.4 seed=1736 size=3 opacity=0.90100000000000002 blur=2 ] id=chips src-atop aux=[ ref=chips lb:bokeh neighborhood=circle color=black amount=34 seed=5335 size=3 opacity=0.90100000000000002 blur=2 ] id=chips src-atop aux=[ ref=chips lb:bokeh neighborhood=circle color=black amount=0.4 seed=52 size=3 opacity=0.90100000000000002 blur=2 ] ] lb:threshold-alpha  "\
+
+
+
+
+
+
 property_enum (crazybevel, _("Select a crazy bevel effect:"),
     nichebevel, niche_bevel,
     crazy1)
@@ -187,9 +199,13 @@ enum_start (niche_bevel)
   enum_value (crazy22,      "crazy22",
               N_("Wax Text"))
   enum_value (crazy23,      "crazy23",
-              N_("Strawberry Cake Text (WARNING - EXTREMELY SLOW)"))
+              N_("Pink Frosting Cake Text (WARNING - EXTREMELY SLOW)"))
   enum_value (crazy24,      "crazy24",
               N_("Chocolate Cake Text (WARNING - EXTREMELY SLOW)"))
+  enum_value (crazy25,      "crazy24",
+              N_("Chocolate Chip Cake Text (WARNING - EXTREMELY SLOW)"))
+  enum_value (crazy26,      "crazy25",
+              N_("Chocolate Chip Cookie Text"))
 enum_end (nichebevel)
 
 #else
@@ -231,6 +247,8 @@ typedef struct
  GeglNode *v;
  GeglNode *w;
  GeglNode *x;
+ GeglNode *y;
+ GeglNode *z;
  GeglNode *output;
 }State;
 
@@ -341,6 +359,15 @@ static void attach (GeglOperation *operation)
                                   "operation", "gegl:gegl", "string", g24,
                                   NULL);
 
+  state->y    = gegl_node_new_child (gegl,
+                                  "operation", "gegl:gegl", "string", g25,
+                                  NULL);
+
+  state->z    = gegl_node_new_child (gegl,
+                                  "operation", "gegl:gegl", "string", g26,
+                                  NULL);
+
+
 
   state->saturation    = gegl_node_new_child (gegl,
                                   "operation", "gegl:saturation",
@@ -441,7 +468,12 @@ switch (o->crazybevel) {
         break;
     case crazy24:
   gegl_node_link_many (state->input, state->sizecontrol, state->x, state->saturation,  state->light, state->output,  NULL);
-
+        break;
+    case crazy25:
+  gegl_node_link_many (state->input, state->sizecontrol, state->y, state->saturation,  state->light, state->output,  NULL);
+        break;
+    case crazy26:
+  gegl_node_link_many (state->input, state->sizecontrol, state->z, state->saturation,  state->light, state->output,  NULL);
 
     }
   }
