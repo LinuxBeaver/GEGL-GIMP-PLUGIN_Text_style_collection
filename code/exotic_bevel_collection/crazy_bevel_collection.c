@@ -69,11 +69,11 @@ Check which numbers correspond to what g graph
 
 
 #define g11 \
-" median-blur radius=25 alpha-percentile=20 cubism tile-size=5  tile-size=9 snn-mean gaussian-blur color-overlay value=#f95dff median-blur  percentile=90 alpha-percentile=290 gaussian-blur std-dev-x=4 std-dev-y=4 id=3 screen aux=[ ref=3  emboss  type=bumpmap azimuth=90  elevation=15 ]  median-blur  percentile=90 alpha-percentile=290 gaussian-blur std-dev-x=4 std-dev-y=4 id=3 screen aux=[ ref=3  emboss  type=bumpmap azimuth=90  elevation=15 ]  median-blur  percentile=90 alpha-percentile=290 screen aux=[ ref=3  emboss  type=bumpmap azimuth=90  elevation=15 ]  median-blur  percentile=90 alpha-percentile=290 screen aux=[ ref=3  emboss  type=bumpmap azimuth=90  elevation=15 ]  opacity value=10 median-blur radius=0 id=color gimp:layer-mode layer-mode=hsv-hue composite-mode=auto aux=[ ref=color  color value=#3c1200 ] levels in-low=0.250 in-high=1.924 out-low=0.056 out-high=0.610 opacity value=4 id=olsn gimp:layer-mode layer-mode=overlay composite-mode=auto opacity=0.16 aux=[ ref=olsn simplex-noise scale=2.31 iterations=1 seed=33  ] median-blur radius=0 lb:edgesmooth hue-chroma lightness=5 chroma=-8 median-blur radius=2 id=lchhuerecolor gimp:layer-mode composite-mode=auto layer-mode=lch-hue aux=[ ref=lchhuerecolor  color value=#ffca9e ] id=ba gimp:layer-mode layer-mode=burn blend-space=rgb-perceptual opacity=0.16 composite-mode=auto aux=[ ref=ba ] hue-chroma lightness=3 median-blur radius=0 bloom strength=50 median-blur radius=0  "\
+" nop  "\
 
 
 #define g12 \
-" id=n1 gaussian-blur std-dev-x=3 std-dev-y=3 color-overlay value=#52ebff id=0 gimp:layer-mode layer-mode=hardlight aux=[ ref=0 emboss depth=5 ] id=1 gimp:layer-mode layer-mode=hsl-color opacity=0.91 aux=[ ref=1 color-overlay value=#52ebff ] noise-reduction iterations=3 id=2 gimp:layer-mode layer-mode=overlay opacity=0.6 blend-space=rgb-perceptual aux=[ ref=2 wind direction=bottom style=blast threshold=1 seed=23 strength=1 oilify mask-radius=3 ] id=3 gimp:layer-mode layer-mode=softlight blend-space=rgb-perceptual opacity=0.90 aux=[ ref=1 lb:bevel bevel1=90 radius1=1 ] noise-reduction iterations=4 id=4 gimp:layer-mode layer-mode=overlay opacity=0.2 blend-space=rgb-linear aux=[ ref=4  edge-extract wind direction=bottom style=blast threshold=4 seed=13 strength=21 oilify mask-radius=2 custom-bevel box=1 gaus=1 depth=3 blendmode=Overlay coloroverlay=#a3e9ff ] opacity value=1.2 median-blur radius=0  softglow glow-radius=1 hue-chroma chroma=4 median-blur radius=0 id=5 gimp:layer-mode layer-mode=overlay aux=[ ref=5 edge  ] median-blur radius=0 saturation scale=0.5 mean-curvature-blur iterations=7 hue-chroma lightness=-3 gimp:layer-mode layer-mode=split opacity=0.20 aux=[ ref=n1 gaussian-blur ] id=got gimp:layer-mode layer-mode=linear-light opacity=0.75 aux=[ ref=got lb:glassovertext hyperopacity=1.5 azimuth=227 depth=20 ] median-blur radius=0 mean-curvature-blur iterations=1 id=sgh src-atop aux=[ ref=sgh softglow opacity value=0.94   ] id=ov gimp:layer-mode layer-mode=overlay opacity=0.30 aux=[ ref=ov emboss ] median-blur radius=0    "\
+" nop   "\
 
 #define g13 \
 "  color-overlay value=white gaussian-blur std-dev-x=1 std-dev-y=1 emboss depth=20 gaussian-blur std-dev-x=1 std-dev-y=1 emboss depth=20   "\
@@ -98,36 +98,35 @@ Check which numbers correspond to what g graph
 "  id=0 over aux=[ ref=0 id=1 median-blur radius=20 alpha-percentile=100 src-in aux=[ ref=1 id=2 gimp:layer-mode layer-mode=split  aux=[ ref=2 color-overlay value=#ffffff gimp:layer-mode layer-mode=behind opacity=1.00 aux=[ color value=#000000  ]  gimp:layer-mode layer-mode=color-erase opacity=1.00 aux=[ color value=#ffffff ] crop median-blur radius=16 alpha-percentile=100 gaussian-blur color-overlay value=#ffffff gimp:layer-mode layer-mode=behind opacity=1.00 aux=[ color value=#000000  ]  gimp:layer-mode layer-mode=color-erase opacity=1.00 aux=[ color value=#ffffff ] crop ] id=3 median-blur radius=8 alpha-percentile=70 src-in aux=[ ref=3 levels out-low=0.01  gaussian-blur std-dev-x=2 std-dev-y=2 custom-bevel  depth=6 blendmode=Multiply gaus=1 box=1 elevation=70 size=0.3 opacity=1.7 opacity value=0.95   ] ] nop ] lb:edgesmooth lb:threshold-alpha median-blur radius=0 "\
 
 #define g19 \
-" color-overay value=white id=x gimp:layer-mode layer-mode=normal blend-space=rgb-linear aux=[ ref=x  id=s gimp:layer-mode layer-mode=behind opacity=0.31  aux=[ ref=s   gaussian-blur std-dev-x=14 std-dev-y=14 color-to-alpha color=#000000 emboss depth=39 elevation=65 opacity value=4 ]  ] lb:edgesmooth lb:edgesmooth gimp:layer-mode layer-mode=split composite-mode=auto aux=[ ref=x   ] over aux=[  ref=x lb:innerglow value2=#000000 radius=4 fixoutline=68  ] id=am gimp:layer-mode layer-mode=overlay composite-space=rgb-perceptual aux=[ ref=am gegl:alien-map color-model=rgb cpn-1-frequency=7.6059999999999999 cpn-2-frequency=10.359 cpn-3-frequency=6.1349999999999998 cpn-1-phaseshift=0 cpn-2-phaseshift=0 cpn-3-phaseshift=0 cpn-1-keep=no cpn-2-keep=no cpn-3-keep=no cubism tile-size=3 gimp:desaturate mean-curvature-blur iterations=1 ] id=all  gimp:layer-mode layer-mode=grain-merge composite-space=rgb-perceptual aux=[ ref=all  ] gaussian-blur std-dev-x=1 std-dev-y=1 gimp:desaturate "\
+" color-overlay value=white id=x gimp:layer-mode layer-mode=normal blend-space=rgb-linear aux=[ ref=x  id=s gimp:layer-mode layer-mode=behind opacity=0.31  aux=[ ref=s   gaussian-blur std-dev-x=14 std-dev-y=14 color-to-alpha color=#000000 emboss depth=39 elevation=65 opacity value=4 ]  ] lb:edgesmooth lb:edgesmooth gimp:layer-mode layer-mode=split composite-mode=auto aux=[ ref=x   ] over aux=[  ref=x lb:innerglow value2=#000000 radius=4 fixoutline=68  ] id=am gimp:layer-mode layer-mode=overlay composite-space=rgb-perceptual aux=[ ref=am gegl:alien-map color-model=rgb cpn-1-frequency=7.6059999999999999 cpn-2-frequency=10.359 cpn-3-frequency=6.1349999999999998 cpn-1-phaseshift=0 cpn-2-phaseshift=0 cpn-3-phaseshift=0 cpn-1-keep=no cpn-2-keep=no cpn-3-keep=no cubism tile-size=3 gimp:desaturate mean-curvature-blur iterations=1 ] id=all  gimp:layer-mode layer-mode=grain-merge composite-space=rgb-perceptual aux=[ ref=all  ] gaussian-blur std-dev-x=1 std-dev-y=1 gimp:desaturate "\
 
 #define g20 \
 " color-overlay value=white custom-bevel gaus=8 box=4  opacity=3.0 coloroverlay=#90baff blendmode=Hardlight azimuth=4  size=7 alphapercentile=5 elevation=1 alien-map cpn-1-frequency=12 cpn-2-frequency=23 cpn-2-frequency=6 gimp:desaturate mode=luminance noise-reduction iterations=1 id=color gimp:layer-mode layer-mode=hsl-color composite-mode=auto opacity=0.86  composite-mode=auto  aux=[ ref=color color value=#c29a23] levels in-low=0.01 id=blendthis median-blur radius=0 id=blendthis gimp:layer-mode layer-mode=hsv-value opacity=0.3 aux=[ ref=blendthis  softglow  ] bloom radius=0.36 strength=18 median-blur radius=0 gegl:opacity value=2 lb:threshold-alpha id=blendburn gimp:layer-mode layer-mode=linear-burn opacity=0.02 aux=[ ref=blendburn ] "\
 
 #define g21 \
-" id=1  color-overlay value=#ffd44f gegl:dropshadow x=0.00  y=0.00 radius=1.00 grow-shape=circle grow-radius=1 opacity=1   color=#3b3b3b gaussian-blur std-dev-x=4 std-dev-y=3 emboss type=bumpmap depth=41 elevation=55 azimuth=12 unsharp-mask scale=1 gimp:threshold-alpha ] bloom strength=25 id=noise2  divide    aux=[ ref=noise2 simplex-noise scale=12 invert box-blur radius=1  ]  id=1 multiply aux=[ linear-gradient start-color=#ffffff end-color=#000000 start-x=256 start-y=346 end-x=256 end-y=-54 ] id=noise  multiply aux=[ ref=noise color-overlay value=#ffffff  noise-cie-lch chroma-distance=0 holdness=2 crop gaussian-blur std-dev-x=1 std-dev-y=1   ]  id=sg soft-light  aux=[  ref=sg softglow opacity value=0.7 crop dropshadow x=5 y=0 opacity=0.45 ] crop id=gold opacity value=2 hue-chroma lightness=16  chroma=7 gimp:layer-mode layer-mode=behind opacity=0.63 aux=[ ref=gold  lens-blur radius=2 crop   ] exposure exposure=-0.1 lb:threshold-alpha alphadegree=4.5  "\
+" color-overlay value=#ffd44f gegl:dropshadow x=0.00  y=0.00 radius=1.00 grow-shape=circle grow-radius=1 opacity=1   color=#3b3b3b gaussian-blur std-dev-x=4 std-dev-y=3 emboss type=bumpmap depth=41 elevation=55 azimuth=12 unsharp-mask scale=1 gimp:threshold-alpha  bloom strength=25 id=noise2  divide    aux=[ ref=noise2 simplex-noise scale=12 invert box-blur radius=1  ]  id=1 multiply aux=[ linear-gradient start-color=#ffffff end-color=#000000 start-x=256 start-y=346 end-x=256 end-y=-54 ] id=noise  multiply aux=[ ref=noise color-overlay value=#ffffff  noise-cie-lch chroma-distance=0 holdness=2 crop gaussian-blur std-dev-x=1 std-dev-y=1   ]  id=sg soft-light  aux=[  ref=sg softglow opacity value=0.7 crop dropshadow x=5 y=0 opacity=0.45 ] crop id=gold opacity value=2 hue-chroma lightness=16  chroma=7 gimp:layer-mode layer-mode=behind opacity=0.63 aux=[ ref=gold  lens-blur radius=2 crop   ] exposure exposure=-0.1 lb:threshold-alpha alphadegree=4.5  "\
+
+
+
+
 
 #define g22 \
-" color-overlay value=#f40014 cubism tile-size=8 tile-saturation=22 seed=334 gaussian-blur std-dev-x=3 std-dev-y=3 id=1 gimp:layer-mode layer-mode=grain-extract aux=[ ref=1 lb:bevel radius1=50 bevel1=145 bevel2=92 th=0.60 azimuth=4229 ] box-blur radius=1 brightness-contrast brightness=-0.11 id=3 gimp:layer-mode layer-mode=linear-light  opacity=0.10 aux=[ ref=3 lb:bevel radius1=50  bevel1=145 bevel2=92 th=0.60 azimuth=4 ] opacity value=1.3 median-blur radius=1 alpha-percentile=10   "\
+" lb:glossy-balloon gaus=5.5 id=1  gimp:layer-mode layer-mode=color-erase aux=[ ref=1 opacity value=1.5    edge-extract edgeamount=3.8170000000000002 threshold=0.28399999999999997 gaus=18.190000000000001 value=#ff00fd ] lb:threshold-alpha median-blur radius=0 "\
 
 
 #define g23 \
-" color-overlay value=white id=x cubism tile-size=4 seed=442 dst aux=[ ref=x median-blur radius=2  alpha-percentile=0 id=x2  ] color-overlay value=#ffffff cubism tile-size=4 seed=442 gaussian-blur std-dev-x=5 std-dev-y=5 id=1 gaussian-blur std-dev-x=6 std-dev-y=6 emboss  xor aux=[ ref=1     ] opacity value=2 emboss depth=20 over aux=[ ref=x2  lb:innerglow value2=black radius=5  opacity value=0.65 ] over aux=[ ref=x2  color-overlay value=#747474 opacity value=0.3 ] mean-curvature-blur  opacity value=2 softglow brightness=90 sharpness=90 glow-radius=50 softglow brightness=90 sharpness=90 glow-radius=40 median-blur radius=0 hue-chroma lightness=2 dst-over aux=[ ref=x median-blur radius=40 alpha-percentile=100 color-overlay value=#ee83ff  cubism tile-size=12 gaussian-blur std-dev-x=2 std-dev-y=2  custom-bevel blendmode=Plus ] saturation scale=1.25 median-blur radius=0 id=hslx gimp:layer-mode layer-mode=hsl-color composite-mode=auto aux=[ ref=hslx  id=melaniescake median-blur radius=0 over aux=[ ref=melaniescake starfield saturation-distance=0.045999999999999999  value-distance=0.050999999999999997  seed=0  out-high=3.972  gamma=6.8529999999999998  std-dev=0.52500000000000002  saturation=1  color-to-alpha color=black opacity value=2.2 median-blur radius= percentile=0 opacity value=2 ] gaussian-blur  std-dev-x=1.5 std-dev-y=1.5 median-blur radius=0 ] id=bottomcake  dst-over aux=[ ref=bottomcake id=bread dst-over aux=[ ref=bread color-overlay value=#ffc383   median-blur radius=25 alpha-percentile=100 id=texture gimp:layer-mode layer-mode=softlight opacity=0.84 composite-mode=auto aux=[ ref=texture noise-rgb noise-rgb noise-rgb noise-reduction iterations=1 ] id=recolorit gimp:layer-mode layer-mode=hsl-color aux=[ ref=recolorit color-overlay value=#ffd09f  ] ] median-blur radius=0  lb:extrusion behindextrusion=yes  center-x=0.083000000000000004  center-y=-2.6709999999999998  factor=0.014  depth=6 exposure=-0.97099999999999997  median-blur radius=0 id=lnburn gimp:layer-mode layer-mode=linear-burn composite-space=rgb-perceptual  opacity=0.011 aux=[ ref=lnburn ]  id=insidebread gimp:layer-mode layer-mode=normal opacity=0.08 aux=[ ref=insidebread noise-rgb noise-reduction iterations=1 ] ] median-blur radius=0 id=bevit gimp:layer-mode layer-mode=softlight opacity=0.34 composite-mode=auto aux=[ ref=bevit lb:bevel hue-chroma lightness=9 ] bloom strength=9 dropshadow  x=4.79 y=8.79 radius=8.14 grow-radius=0 color=#000000 opacity=1.04    "\
+" lb:glossy-balloon gaus=8.5 id=1  gimp:layer-mode layer-mode=color-erase aux=[ ref=1 opacity value=2    edge-extract edgeamount=3.8170000000000002 threshold=0.28399999999999997 gaus=18.190000000000001 value=#ff00fd ] lb:threshold-alpha median-blur radius=0 "\
 
 
 #define g24 \
-" color-overlay value=white median-blur radius=8  alpha-percentile=20 gaussian-blur std-dev-x=2 std-dev-y=2 lb:threshold-alpha median-blur radius=8  alpha-percentile=20 gaussian-blur std-dev-x=2 std-dev-y=2 lb:threshold-alpha cubism tile-size=2 seed=442 id=x dst aux=[ ref=x median-blur radius=2  alpha-percentile=0 id=x2  ] color-overlay value=#ffffff cubism tile-size=10 seed=442 gaussian-blur std-dev-x=5 std-dev-y=5 id=1 gaussian-blur std-dev-x=6 std-dev-y=6 emboss  lb:threshold-alpha lb:threshold-alpha id=chocolate gimp:layer-mode layer-mode=grain-merge opacity=0.70 aux=[ ref=chocolate color-overlay value=#f579ff ] gimp:layer-mode layer-mode=split composite-space=auto aux=[ ref=1     ] opacity value=2 emboss depth=20 over aux=[ ref=x2  lb:innerglow value2=black radius=5  opacity value=0.65 ] over aux=[ ref=x2  color-overlay value=#f579ff opacity value=0.3 ] mean-curvature-blur  opacity value=2 softglow brightness=90 sharpness=90 glow-radius=50 softglow brightness=90 sharpness=90 glow-radius=40 median-blur radius=0 hue-chroma lightness=2 id=colorfrosting gimp:layer-mode layer-mode=hsl-color opacity=0.44 aux=[ ref=colorfrosting   median-blur radius=0 color-overlay  value=#ff0500 ] mean-curvature-blur iterations=3 lb:threshold-alpha dst-over aux=[ ref=x median-blur radius=40 alpha-percentile=100 color-overlay value=#934c00  cubism tile-size=12 gaussian-blur std-dev-x=2 std-dev-y=2  custom-bevel blendmode=Multiply ] saturation scale=1.25 median-blur radius=0 id=hslx gimp:layer-mode layer-mode=hsl-color composite-mode=auto aux=[ ref=hslx  id=melaniescake median-blur radius=0 gaussian-blur  std-dev-x=1.5 std-dev-y=1.5 median-blur radius=0 ] id=bottomcake  dst-over aux=[ ref=bottomcake id=bread dst-over aux=[ ref=bread color-overlay value=#ffc383   median-blur radius=25 alpha-percentile=100 id=texture gimp:layer-mode layer-mode=softlight opacity=0.84 composite-mode=auto aux=[ ref=texture noise-rgb noise-rgb noise-rgb noise-reduction iterations=1 ] id=recolorit gimp:layer-mode layer-mode=hsl-color aux=[ ref=recolorit color-overlay value=#ffd09f  ] ] median-blur radius=0  lb:extrusion behindextrusion=yes  center-x=0.083000000000000004  center-y=-2.6709999999999998  factor=0.014  depth=6 exposure=-0.97099999999999997  median-blur radius=0 id=lnburn gimp:layer-mode layer-mode=linear-burn composite-space=rgb-perceptual  opacity=0.011 aux=[ ref=lnburn ]  id=insidebread gimp:layer-mode layer-mode=normal opacity=0.08 aux=[ ref=insidebread noise-rgb noise-reduction iterations=1 ] ] median-blur radius=0 id=bevit gimp:layer-mode layer-mode=softlight opacity=0.34 composite-mode=auto aux=[ ref=bevit lb:bevel hue-chroma lightness=9 ] bloom strength=9 dropshadow  x=4.79 y=8.79 radius=8.14 grow-radius=0 color=#000000 opacity=1.04   "\
+"  lb:glossy-balloon gaus=11.5 id=1  gimp:layer-mode layer-mode=color-erase aux=[ ref=1 opacity value=2.4    edge-extract edgeamount=3.8170000000000002 threshold=0.28399999999999997 gaus=18.190000000000001 value=#ff00fd ]  lb:threshold-alpha median-blur radius=0 "\
 
 
 #define g25 \
-" id=cookiecontainer src aux=[ ref=cookiecontainer id=x cubism tile-size=8 seed=442 dst aux=[ ref=x median-blur radius=2  alpha-percentile=0 id=x2  ] color-overlay value=#ffffff cubism tile-size=4 seed=442 gaussian-blur std-dev-x=5 std-dev-y=5 id=1 gaussian-blur std-dev-x=6 std-dev-y=6 emboss  xor aux=[ ref=1     ] opacity value=2 emboss depth=20 over aux=[ ref=x2  lb:innerglow value2=black radius=5  opacity value=0.65 ] over aux=[ ref=x2  color-overlay value=#747474 opacity value=0.3 ] mean-curvature-blur  opacity value=2 softglow brightness=90 sharpness=90 glow-radius=50 softglow brightness=90 sharpness=90 glow-radius=40 median-blur radius=0 id=topcreamcolor gimp:layer-mode layer-mode=multiply composite-mode=clip-to-backdrop aux=[ ref=topcreamcolor color value=#f0a479  ] id=chips src-atop aux=[ ref=chips lb:bokeh neighborhood=circle color=black amount=0.095000000000000001 seed=4214089293 size=5 opacity=0.90100000000000002 blur=2 ] id=chips src-atop aux=[ ref=chips lb:bokeh neighborhood=circle color=black amount=0.3 seed=76 size=3 opacity=0.90100000000000002 blur=2 ] id=chips src-atop aux=[ ref=chips lb:bokeh neighborhood=circle color=black amount=0.095000000000000001 seed=1736 size=3 opacity=0.90100000000000002 blur=2 ] id=chips src-atop aux=[ ref=chips id=chips src-atop aux=[ ref=chips lb:bokeh neighborhood=circle color=black amount=0.4 seed=1736 size=3 opacity=0.90100000000000002 blur=2 ] id=chips src-atop aux=[ ref=chips lb:bokeh neighborhood=circle color=black amount=34 seed=5335 size=3 opacity=0.90100000000000002 blur=2 ] id=chips src-atop aux=[ ref=chips lb:bokeh neighborhood=circle color=black amount=0.4 seed=52 size=3 opacity=0.90100000000000002 blur=2 ] ] lb:threshold-alpha dropshadow x=0 y=0 radius=4 grow-radius=0 opacity=1.84 dst-over aux=[ ref=x median-blur radius=40 alpha-percentile=100 color-overlay value=#96664a cubism tile-size=12 gaussian-blur std-dev-x=2 std-dev-y=2  custom-bevel blendmode=Multiply ] saturation scale=1.25 median-blur radius=0 id=hslx gimp:layer-mode layer-mode=hsl-color composite-mode=auto aux=[ ref=hslx  id=melaniescake median-blur radius=0 over aux=[ ref=melaniescake median-blur radius= percentile=0 opacity value=2 ] gaussian-blur  std-dev-x=1.5 std-dev-y=1.5 median-blur radius=0 ] id=bottomcake  dst-over aux=[ ref=bottomcake id=bread dst-over aux=[ ref=bread color-overlay value=#ffc383   median-blur radius=25 alpha-percentile=100 id=texture gimp:layer-mode layer-mode=softlight opacity=0.84 composite-mode=auto aux=[ ref=texture noise-reduction iterations=1 ] id=recolorit gimp:layer-mode layer-mode=hsv-hue opacity=0.40 aux=[ ref=recolorit color-overlay value=#fcd0ff ] ] median-blur radius=0  lb:extrusion behindextrusion=yes  center-x=0.083000000000000004  center-y=-2.6709999999999998  factor=0.014  depth=6 exposure=-0.97099999999999997  median-blur radius=0 id=lnburn gimp:layer-mode layer-mode=linear-burn composite-space=rgb-perceptual  opacity=0.012 aux=[ ref=lnburn ]  ] median-blur radius=0 id=bevit gimp:layer-mode layer-mode=softlight opacity=0.14 composite-mode=auto aux=[ ref=bevit lb:bevel hue-chroma lightness=9 ] bloom strength=9 dropshadow  x=4.79 y=.479 radius=8.14 grow-radius=0 color=#000000 opacity=1.04    "\
+" nop    "\
 
 #define g26 \
-" id=cookiecontainer src aux=[ ref=cookiecontainer id=x cubism tile-size=8 seed=442 dst aux=[ ref=x median-blur radius=2  alpha-percentile=0 id=x2  ] color-overlay value=#ffffff cubism tile-size=4 seed=442 gaussian-blur std-dev-x=5 std-dev-y=5 id=1 gaussian-blur std-dev-x=6 std-dev-y=6 emboss  xor aux=[ ref=1     ] opacity value=2 emboss depth=20 over aux=[ ref=x2  lb:innerglow value2=black radius=5  opacity value=0.65 ] over aux=[ ref=x2  color-overlay value=#747474 opacity value=0.3 ] mean-curvature-blur  opacity value=2 softglow brightness=90 sharpness=90 glow-radius=50 softglow brightness=90 sharpness=90 glow-radius=40 median-blur radius=0 id=topcreamcolor gimp:layer-mode layer-mode=multiply composite-mode=clip-to-backdrop aux=[ ref=topcreamcolor color value=#f0a479  ] id=chips src-atop aux=[ ref=chips lb:bokeh neighborhood=circle color=black amount=0.095000000000000001 seed=4214089293 size=5 opacity=0.90100000000000002 blur=2 ] id=chips src-atop aux=[ ref=chips lb:bokeh neighborhood=circle color=black amount=0.3 seed=76 size=3 opacity=0.90100000000000002 blur=2 ] id=chips src-atop aux=[ ref=chips lb:bokeh neighborhood=circle color=black amount=0.095000000000000001 seed=1736 size=3 opacity=0.90100000000000002 blur=2 ] id=chips src-atop aux=[ ref=chips id=chips src-atop aux=[ ref=chips lb:bokeh neighborhood=circle color=black amount=0.4 seed=1736 size=3 opacity=0.90100000000000002 blur=2 ] id=chips src-atop aux=[ ref=chips lb:bokeh neighborhood=circle color=black amount=34 seed=5335 size=3 opacity=0.90100000000000002 blur=2 ] id=chips src-atop aux=[ ref=chips lb:bokeh neighborhood=circle color=black amount=0.4 seed=52 size=3 opacity=0.90100000000000002 blur=2 ] ] lb:threshold-alpha  "\
-
-
-
-
-
+" nop "\
 
 property_enum (crazybevel, _("Select a crazy bevel effect:"),
     nichebevel, niche_bevel,
@@ -175,9 +174,9 @@ enum_start (niche_bevel)
   enum_value (crazy10,      "crazy10",
               N_("Sharp Bevel + Faint Rings (Grain Merge)"))
   enum_value (crazy11,      "crazy11",
-              N_("Bathroom humor text"))
+              N_("NO CONTENT YET"))
   enum_value (crazy12,      "crazy12",
-              N_("Ice Text"))
+              N_("NO CONTENT YET"))
   enum_value (crazy13,      "crazy13",
               N_("(TO BLEND) Default Bevel Doubled"))
   enum_value (crazy14,      "crazy14",
@@ -197,15 +196,15 @@ enum_start (niche_bevel)
   enum_value (crazy21,      "crazy21",
               N_("Fake Gold"))
   enum_value (crazy22,      "crazy22",
-              N_("Wax Text"))
+              N_("Transparent Glossy Balloon (low inflation)"))
   enum_value (crazy23,      "crazy23",
-              N_("Pink Frosting Cake Text (WARNING - EXTREMELY SLOW)"))
+              N_("Transparent Glossy Balloon (mid-high inflation)"))
   enum_value (crazy24,      "crazy24",
-              N_("Chocolate Cake Text (WARNING - EXTREMELY SLOW)"))
-  enum_value (crazy25,      "crazy24",
-              N_("Chocolate Chip Cake Text (WARNING - EXTREMELY SLOW)"))
-  enum_value (crazy26,      "crazy25",
-              N_("Chocolate Chip Cookie Text"))
+              N_("Transparent Glossy Balloon (high inflation)"))
+  enum_value (crazy25,      "crazy25",
+              N_("NO CONTENT YET"))
+  enum_value (crazy26,      "crazy26",
+              N_("NO CONTENT YET"))
 enum_end (nichebevel)
 
 #else
@@ -367,8 +366,6 @@ static void attach (GeglOperation *operation)
                                   "operation", "gegl:gegl", "string", g26,
                                   NULL);
 
-
-
   state->saturation    = gegl_node_new_child (gegl,
                                   "operation", "gegl:saturation",
                                   NULL);
@@ -381,8 +378,6 @@ static void attach (GeglOperation *operation)
   state->light    = gegl_node_new_child (gegl,
                                   "operation", "gegl:hue-chroma",
                                   NULL);
-
-
   gegl_operation_meta_redirect (operation, "radius",  state->sizecontrol, "radius");
   gegl_operation_meta_redirect (operation, "saturation",  state->saturation, "scale");
   gegl_operation_meta_redirect (operation, "lightness",  state->light, "lightness");
@@ -490,7 +485,7 @@ GeglOperationMetaClass *operation_meta_class = GEGL_OPERATION_META_CLASS (klass)
 
   gegl_operation_class_set_keys (operation_class,
     "name",        "lb:bevelcollection",
-    "title",       _("Misc Bevel and Bump Collection"),
+    "title",       _("Text Style Collection (Bevel Type)"),
     "reference-hash", "afgjaksharpa3rings",
     "description", _("Collection of Bevel/Bump algorithms that do not fit with any other plugin of mine or have not yet been properly converted into a full editable filter. All these filters have very limited editability and nothing unique. One day some of these bevel algorithms may be stand alone filters with complete editable options. Filters with the 'TO BLEND' option are meant to be used with 'blend modes/blending options'. "),
     "gimp:menu-path", "<Image>/Filters/Text Styling",
