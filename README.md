@@ -1,6 +1,6 @@
 
 Download here.
-https://github.com/LinuxBeaver/Gimp-Misc-Bevel-Collection-Plugin/releases
+https://github.com/LinuxBeaver/Gimp-Text-Style-Collection-Plugin/releases
 
 ![image](https://github.com/LinuxBeaver/Gimp-Misc-Bevel-Collection-Plugin/assets/78667207/4862549b-7ed5-4f79-8a28-4fafbb365b4e)
 
