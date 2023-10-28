@@ -2,7 +2,11 @@
 Download here.
 https://github.com/LinuxBeaver/Gimp-Misc-Bevel-Collection-Plugin/releases
 
-## Misc Bevel Bump Collection - Gimp Plugin
+![image](https://github.com/LinuxBeaver/Gimp-Misc-Bevel-Collection-Plugin/assets/78667207/4862549b-7ed5-4f79-8a28-4fafbb365b4e)
+
+
+
+## Misc Text Style Collection - Gimp Plugin
 
 Currently 24 different bevel bump map variations exist for the user to choose from with like 11 or 13 debatably unique filters all in one place. That way instead of giving all these crazy bevels and bumps their own plugin they can all be grouped in one place. Yes, I know the cake text is based
 
