@@ -35,8 +35,6 @@ color-overlay value=#0fff00
 
 #ifdef GEGL_PROPERTIES
 
-
-
 property_double (edgeamount, _("Edge Amount"), 10)
    description (_("Strength of Effect"))
    value_range (3.0, 16.0)
@@ -58,11 +56,6 @@ property_double (gaus, _("Blur"), 1.0)
 
 property_color (value, _("Color"), "#ffffff")
     description (_("The color to paint over the input"))
-
-
-
-
-
 
 #else
 
@@ -100,8 +93,6 @@ static void attach (GeglOperation *operation)
                                   "operation", "gegl:color-to-alpha",
                                   NULL);
 
-
-
    invert = gegl_node_new_child (gegl,
                                   "operation", "gegl:invert",
                                   NULL);
@@ -121,41 +112,13 @@ static void attach (GeglOperation *operation)
                                   "operation", "gegl:color-overlay",
                                   NULL);
 
-
-
-
-
-  gegl_operation_meta_redirect (operation, "gray", gray, "gray");
-
-
   gegl_operation_meta_redirect (operation, "edgeamount", edge, "amount");
-
   gegl_operation_meta_redirect (operation, "threshold", threshold, "value");
-
   gegl_operation_meta_redirect (operation, "gaus", gaus, "std-dev-x");
-
   gegl_operation_meta_redirect (operation, "gaus", gaus, "std-dev-y");
-
   gegl_operation_meta_redirect (operation, "value", color, "value");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
   gegl_node_link_many (input, gray, edge, threshold, invert, c2a, gaus, vinvert, color, output, NULL);
-
-
-
-
 }
 
 static void
