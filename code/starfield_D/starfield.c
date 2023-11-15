@@ -149,7 +149,6 @@ static void attach (GeglOperation *operation)
     gegl_operation_meta_redirect (operation, "out_high", levels, "out-high");
     gegl_operation_meta_redirect (operation, "saturation", saturation, "scale");
     gegl_operation_meta_redirect (operation, "factor", zmb, "factor");
-    gegl_operation_meta_redirect (operation, "string",  graph, "string");
 
 
   gegl_node_link_many (input, graph, color, noise, invert, levels, gamma, blur, glow, saturation, zmb, output, NULL);
