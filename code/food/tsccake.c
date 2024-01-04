@@ -57,7 +57,7 @@ Check which numbers correspond to what g graph
 
 
 #define g7 \
-"  nop  "\
+"  id=x cubism tile-size=4 seed=442 dst aux=[ ref=x median-blur radius=2  alpha-percentile=0 cubism tile-size=3 id=x2  ] color-overlay value=#ecc7ff cubism tile-size=4 seed=442 gaussian-blur std-dev-x=5 std-dev-y=5 id=1 gaussian-blur std-dev-x=6 std-dev-y=6 id=frostingcolor gimp:layer-mode layer-mode=overlay opacity=0.60 aux=[ ref=frostingcolor emboss ] xor aux=[ ref=1     ] opacity value=2 id=frostingcolor2 gimp:layer-mode layer-mode=overlay opacity=0.60 aux=[ ref=frostingcolor2 emboss  ] over aux=[ ref=x2  lb:innerglow value2=black radius=5  opacity value=0.65 ] over aux=[ ref=x2  color-overlay value=#747474 opacity value=0.3 ] mean-curvature-blur  opacity value=2 softglow brightness=90 sharpness=90 glow-radius=50 softglow brightness=90 sharpness=90 glow-radius=40 median-blur radius=0 dst-over aux=[ ref=x median-blur radius=40 alpha-percentile=100 color-overlay value=#ee83ff  cubism tile-size=12 gaussian-blur std-dev-x=2 std-dev-y=2  custom-bevel blendmode=Plus ] saturation scale=1.25 median-blur radius=0 id=hslx gimp:layer-mode layer-mode=hsl-color composite-mode=auto aux=[ ref=hslx  id=melaniescake median-blur radius=0 over aux=[ ref=melaniescake starfield saturation-distance=0.045999999999999999  value-distance=0.050999999999999997  seed=0  out-high=3.972  gamma=8.8529999999999998  std-dev=0.52500000000000002  saturation=1  color-to-alpha color=black opacity value=2.2 median-blur radius= percentile=0 opacity value=2 ] gaussian-blur  std-dev-x=1.5 std-dev-y=1.5 median-blur radius=0 ] id=bottomcake  dst-over aux=[ ref=bottomcake id=bread dst-over aux=[ ref=bread color-overlay value=#ffc383   median-blur radius=25 alpha-percentile=100 id=texture gimp:layer-mode layer-mode=softlight opacity=0.84 composite-mode=auto aux=[ ref=texture noise-rgb noise-rgb noise-rgb noise-reduction iterations=1 ] id=recolorit gimp:layer-mode layer-mode=hsl-color aux=[ ref=recolorit color-overlay value=#ab84b5 ] ] median-blur radius=0  lb:extrusion behindextrusion=yes  center-x=0.493000000000000004  center-y=-1.9709999999999998  factor=0.016  depth=2 exposure=-0.97099999999999997  median-blur radius=0 id=lnburn gimp:layer-mode layer-mode=linear-burn composite-space=rgb-perceptual  opacity=0.011 aux=[ ref=lnburn ]  ] median-blur radius=0 id=bevit gimp:layer-mode layer-mode=softlight opacity=0.34 composite-mode=auto aux=[ ref=bevit lb:bevel hue-chroma lightness=14 ] bloom strength=9 dropshadow  x=0 y=0 radius=8.14 grow-radius=0 color=#000000 opacity=1.04  "\
 
 #define g8 \
 "  nop "\
@@ -161,7 +161,7 @@ enum_start (niche_beveldesert)
   enum_value (crazy6,      "crazy6",
               N_("Leaf Text"))
   enum_value (crazy7,      "crazy7",
-              N_("NO CONTENT YET"))
+              N_("Pink bread and frosting Cake text (WARNING -EXTREMELY SLOW"))
   enum_value (crazy8,      "crazy8",
               N_("NO CONTENT YET"))
   enum_value (crazy9,      "crazy9",
