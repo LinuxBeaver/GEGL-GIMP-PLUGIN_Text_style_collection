@@ -1,1 +1,0 @@
-_D means duplicate. Meaning the plugin exist elsewhere on Github but is a dependency for Text Styling Collection. Said plugins that ship with text styling collection are high quality stand alones and are required for it to work.
