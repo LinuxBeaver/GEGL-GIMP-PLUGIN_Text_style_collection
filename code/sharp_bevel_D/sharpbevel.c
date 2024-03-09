@@ -265,10 +265,10 @@ default: usethis = state->hardlight;
   {
   gegl_node_link_many (state->input, state->allowblack, state->median, state->dt, state->multiply5, state->smooth, state->fix, state->c2a, state->col, state->nop, usethis, state->opacity, state->fix2, state->ta2, state->levels, state->multiply2, state->edgesmooth, state->ta2again, state->sharpen, state->output, NULL);
 /* Most of the GEGL nodes are here. usethis is a potential blend that users can choose. The nop behaves like a id/ref */
-  gegl_node_connect_from (usethis, "aux", state->emboss, "output");
+  gegl_node_connect (usethis, "aux", state->emboss, "output");
   gegl_node_link_many (state->nop, state->emboss,  NULL);
 /* Emboss is being put inside a blend mode of the users choice. */
-  gegl_node_connect_from (state->multiply2, "aux", state->imagefileoverlay, "output");
+  gegl_node_connect (state->multiply2, "aux", state->imagefileoverlay, "output");
 /* Image file overlay is being fused with the multiply blend mode. */ 
   }
 
@@ -277,12 +277,12 @@ else
   {
   gegl_node_link_many (state->input, state->allowblack, state->fix3, state->multiply4, state->idref, state->median, state->dt, state->multiply5, state->smooth, state->fix, state->c2a, state->nop, usethis, state->opacity, state->fix2, state->ta2, state->graph, state->multiply2,  state->multiply3, state->levels, state->edgesmooth, state->ta2again, state->sharpen, state->output, NULL);
 /* Most of the GEGL nodes are here. usethis is a potential blend that users can choose. The nop behaves like a id/ref */
-  gegl_node_connect_from (usethis, "aux", state->emboss, "output");
+  gegl_node_connect (usethis, "aux", state->emboss, "output");
   gegl_node_link_many (state->nop, state->emboss,  NULL);
 /* Emboss is being put inside a blend mode of the users choice. */
-  gegl_node_connect_from (state->multiply2, "aux", state->imagefileoverlay, "output");
+  gegl_node_connect (state->multiply2, "aux", state->imagefileoverlay, "output");
 /* Image file overlay is being fused with the multiply blend mode. */
-  gegl_node_connect_from (state->multiply3, "aux", state->idref, "output");
+  gegl_node_connect (state->multiply3, "aux", state->idref, "output");
 /*The idref node is a nop that was placed very early in the graph
 to bookmark the original gimp layer content. Now it is being recalled 
 to grab image data that will be median blurred and multiply blended on
@@ -576,7 +576,7 @@ GeglOperationMetaClass *operation_meta_class = GEGL_OPERATION_META_CLASS (klass)
     "title",       _("Sharp Bevel"),
     "categories",  "Artistic",
     "reference-hash", "v76ao6gk4321vyeef625362f2ag",
-    "description", _("A heavy modification of my existing custom bevel plugin. GEGL makes a bevel allowing choice of bevel size, and internal blend modes.  Different blend modes do different things regarding detail, depth or presence of a shine effect."
+    "description", _("A heavy modification of my existing custom bevel plugin. Create a bevel allowing choice of bevel size, and internal blend modes.  Different blend modes do different things regarding detail, depth or presence of a shine effect."
                      ""),
     "gimp:menu-path", "<Image>/Filters/Text Styling",
     "gimp:menu-label", _("Sharp Bevel..."),

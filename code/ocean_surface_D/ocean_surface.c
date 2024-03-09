@@ -124,9 +124,9 @@ linearburn = gegl_node_new_child (gegl,
 
   gegl_node_link_many (input, normal, difference, linearburn, median, glow, output, NULL);
   gegl_node_link_many (noise, opacity,  NULL);
-  gegl_node_connect_from (normal, "aux", white, "output");
-  gegl_node_connect_from (linearburn, "aux", color, "output");
-  gegl_node_connect_from (difference, "aux", opacity, "output");
+  gegl_node_connect (normal, "aux", white, "output");
+  gegl_node_connect (linearburn, "aux", color, "output");
+  gegl_node_connect (difference, "aux", opacity, "output");
 
  gegl_operation_meta_redirect (operation, "xnoise", noise, "x-size"); 
  gegl_operation_meta_redirect (operation, "ynoise", noise, "y-size"); 

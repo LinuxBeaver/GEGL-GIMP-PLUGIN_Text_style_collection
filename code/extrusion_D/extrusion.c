@@ -191,8 +191,8 @@ static void attach (GeglOperation *operation)
 /* Original graph that isn't needed anymore. This graph can't use blend mode switchers.
 
   gegl_node_link_many (input, zmb, nop, multiply, alpha, nop2, screen, median, nr, chroma, brightness, edgesmoothend, output, NULL);
-  gegl_node_connect_from (multiply, "aux", bevel, "output"); 
-  gegl_node_connect_from (screen, "aux", opacity, "output"); 
+  gegl_node_connect (multiply, "aux", bevel, "output"); 
+  gegl_node_connect (screen, "aux", opacity, "output"); 
   gegl_node_link_many (nop, bevel, NULL);
   gegl_node_link_many (nop2, edge, opacity, NULL);
  */
@@ -246,10 +246,10 @@ update_graph (GeglOperation *operation)
   {
 /*The main GEGL Graph and behind blend mode that everything is inside */
   gegl_node_link_many (state->input, state->edgesmoothbegin, state->behind, state->output, NULL);
-  gegl_node_connect_from (state->behind, "aux", state->edgesmoothend, "output"); 
+  gegl_node_connect (state->behind, "aux", state->edgesmoothend, "output"); 
   gegl_node_link_many (state->input, state->zmb, state->nop, state->multiply, state->alpha, state->median,  state->brightness, state->edgesmoothend, NULL);
 /*Multiply connects to bevel */
-  gegl_node_connect_from (state->multiply, "aux", state->bevel, "output"); 
+  gegl_node_connect (state->multiply, "aux", state->bevel, "output"); 
   gegl_node_link_many (state->nop, state->bevel, NULL);
   }
   else
@@ -257,7 +257,7 @@ update_graph (GeglOperation *operation)
 /*The main GEGL Graph */
   gegl_node_link_many (state->input, state->zmb, state->nop, state->multiply, state->alpha, state->median,  state->brightness, state->edgesmoothend, state->output, NULL);
 /*Multiply connects to bevel */
-  gegl_node_connect_from (state->multiply, "aux", state->bevel, "output");
+  gegl_node_connect (state->multiply, "aux", state->bevel, "output");
   gegl_node_link_many (state->nop, state->bevel, NULL);
   }
 }
@@ -277,7 +277,7 @@ gegl_op_class_init (GeglOpClass *klass)
     "name",        "lb:extrusion",
     "title",       _("Extrusion for styled text"),
     "reference-hash", "156j6bfzaa5014f2ks3b27ac",
-    "description", _("GEGL makes a extrusion effect"
+    "description", _("Make a extrusion effect"
                      ""),
     "gimp:menu-path", "<Image>/Filters/Text Styling",
     "gimp:menu-label", _("Extrusion..."),

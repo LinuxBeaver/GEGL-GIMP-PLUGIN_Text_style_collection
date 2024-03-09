@@ -17,7 +17,7 @@
  * Glass over Text 2023 Beaver
  */
 
-/*GEGL Glass Over Text was once just a stand alone plugin, but now it is also part of GEGL Effects. The stand alone version still exist and does more then the GEGL Effects implementation of it. */
+/*GEGL Glass Over Text was once just a stand alone plugin, but now it is also part of Graphical Effects. The stand alone version still exist and does more then the Graphical Effects implementation of it. */
 
 
 /*
@@ -65,8 +65,8 @@ property_enum (glassover, _("Blend Mode of Glass on Text"),
     ui_meta     ("role", "output-extent")
 
 
-property_boolean (enableglasstext, _("Enable Glass on Text for GEGL Effects"), TRUE)
-  description    (_("This option is only for GEGL Effects"))
+property_boolean (enableglasstext, _("Enable Glass on Text for Graphical Effects"), TRUE)
+  description    (_("This option is only for Graphical Effects"))
     ui_meta     ("role", "output-extent")
 /*     ui_meta     ("role", "output-extent") hides this from showing up in the GUI */
 
@@ -171,7 +171,7 @@ default: blendglass = state->glassover;
   {
   gegl_node_link_many (state->input, blendglass, state->output,  NULL);
   gegl_node_link_many (state->input, state->white, state->retract, state->emboss, state->string, state->color, state->hyperopacity, state->gaussian, NULL);
-  gegl_node_connect_from (blendglass, "aux", state->gaussian, "output");
+  gegl_node_connect (blendglass, "aux", state->gaussian, "output");
   }
 else
   gegl_node_link_many (state->input, state->output,  NULL);
@@ -221,7 +221,7 @@ GeglProperties *o = GEGL_PROPERTIES (operation);
                                   NULL);
 
 
-  /* Glass Over Text blend modes for GEGL Effects */
+  /* Glass Over Text blend modes for Graphical Effects */
 
   glassover = gegl_node_new_child (gegl,
                                   "operation", "gegl:src-in",

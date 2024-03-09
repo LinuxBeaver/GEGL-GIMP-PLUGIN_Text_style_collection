@@ -37,7 +37,7 @@ Check which numbers correspond to what g graph
 
 
 #define g2 \
-"  id=n1 gaussian-blur std-dev-x=3 std-dev-y=3 color-overlay value=#52ebff id=0 gimp:layer-mode layer-mode=hardlight aux=[ ref=0 emboss depth=5 ] id=1 gimp:layer-mode layer-mode=hsl-color opacity=0.91 aux=[ ref=1 color-overlay value=#52ebff ] noise-reduction iterations=3 id=2 gimp:layer-mode layer-mode=overlay opacity=0.6 blend-space=rgb-perceptual aux=[ ref=2 wind direction=bottom style=blast threshold=1 seed=23 strength=1 oilify mask-radius=3 ] id=3 gimp:layer-mode layer-mode=softlight blend-space=rgb-perceptual opacity=0.90 aux=[ ref=1 lb:bevel bevel1=90 radius1=1 ] noise-reduction iterations=4 id=4 gimp:layer-mode layer-mode=overlay opacity=0.2 blend-space=rgb-linear aux=[ ref=4  edge-extract wind direction=bottom style=blast threshold=4 seed=13 strength=21 oilify mask-radius=2 custom-bevel box=1 gaus=1 depth=3 blendmode=Overlay coloroverlay=#a3e9ff ] opacity value=1.2 median-blur radius=0  softglow glow-radius=1 hue-chroma chroma=4 median-blur radius=0 id=5 gimp:layer-mode layer-mode=overlay aux=[ ref=5 edge  ] median-blur radius=0 saturation scale=0.5 mean-curvature-blur iterations=7 hue-chroma lightness=-3 gimp:layer-mode layer-mode=split opacity=0.20 aux=[ ref=n1 gaussian-blur ] id=got gimp:layer-mode layer-mode=linear-light opacity=0.75 aux=[ ref=got lb:glassovertext hyperopacity=1.5 azimuth=227 depth=20 ] median-blur radius=0 mean-curvature-blur iterations=1 id=sgh src-atop aux=[ ref=sgh softglow opacity value=0.94   ] id=ov gimp:layer-mode layer-mode=overlay opacity=0.30 aux=[ ref=ov emboss ] median-blur radius=0 "\
+"  id=n1 gaussian-blur std-dev-x=3 std-dev-y=3 color-overlay value=#52ebff id=0 gimp:layer-mode layer-mode=hardlight aux=[ ref=0 emboss depth=5 ] id=1 gimp:layer-mode layer-mode=hsl-color opacity=0.91 aux=[ ref=1 color-overlay value=#52ebff ] noise-reduction iterations=3 id=2 gimp:layer-mode layer-mode=overlay opacity=0.6 blend-space=rgb-perceptual aux=[ ref=2 wind direction=bottom style=blast threshold=1 seed=23 strength=1 oilify mask-radius=3 ] id=3 gimp:layer-mode layer-mode=softlight blend-space=rgb-perceptual opacity=0.90 aux=[ ref=1 lb:bevel bevel1=90 radius1=1 ] noise-reduction iterations=4 id=4 gimp:layer-mode layer-mode=overlay opacity=0.2 blend-space=rgb-linear aux=[ ref=4  lb:edge-extract wind direction=bottom style=blast threshold=4 seed=13 strength=21 oilify mask-radius=2 lb:custom-bevel box=1 gaus=1 depth=3 blendmode=Overlay coloroverlay=#a3e9ff ] opacity value=1.2 median-blur radius=0  softglow glow-radius=1 hue-chroma chroma=4 median-blur radius=0 id=5 gimp:layer-mode layer-mode=overlay aux=[ ref=5 edge  ] median-blur radius=0 saturation scale=0.5 mean-curvature-blur iterations=7 hue-chroma lightness=-3 gimp:layer-mode layer-mode=split opacity=0.20 aux=[ ref=n1 gaussian-blur ] id=got gimp:layer-mode layer-mode=linear-light opacity=0.75 aux=[ ref=got lb:glassovertext hyperopacity=1.5 azimuth=227 depth=20 ] median-blur radius=0 mean-curvature-blur iterations=1 id=sgh src-atop aux=[ ref=sgh softglow opacity value=0.94   ] id=ov gimp:layer-mode layer-mode=overlay opacity=0.30 aux=[ ref=ov emboss ] median-blur radius=0 "\
 
 
 #define g3 \
@@ -47,25 +47,25 @@ Check which numbers correspond to what g graph
 
 
 #define g4 \
-" id=1 color-overlay value=red cubism tile-size=10 seed=23 median-blur radius=2 median-blur radius=9 alpha-percentile=70 neighborhood=diamond lb:threshold-alpha opacity value=1 median-blur radius=0 custom-bevel depth=4 custom-bevel blendmode=ColorDodge gimp:layer-mode layer-mode=hsl-color composite-mode=auto aux=[ ref=1  median-blur radius=50 alpha-percentile=100 ] "\
+" id=1 color-overlay value=red cubism tile-size=10 seed=23 median-blur radius=2 median-blur radius=9 alpha-percentile=70 neighborhood=diamond lb:threshold-alpha opacity value=1 median-blur radius=0 lb:custom-bevel depth=4 lb:custom-bevel blendmode=ColorDodge gimp:layer-mode layer-mode=hsl-color composite-mode=auto aux=[ ref=1  median-blur radius=50 alpha-percentile=100 ] "\
 
 
 
 #define g5 \
-" id=1 color-overlay value=#ff0f00 cubism tile-size=15 seed=23 median-blur radius=2 median-blur radius=9 alpha-percentile=70 neighborhood=diamond lb:threshold-alpha opacity value=1 median-blur radius=0 custom-bevel depth=4 custom-bevel blendmode=ColorDodge gimp:layer-mode layer-mode=hsl-color composite-mode=auto aux=[ ref=1  median-blur radius=50 alpha-percentile=100 ]  "\
+" id=1 color-overlay value=#ff0f00 cubism tile-size=15 seed=23 median-blur radius=2 median-blur radius=9 alpha-percentile=70 neighborhood=diamond lb:threshold-alpha opacity value=1 median-blur radius=0 lb:custom-bevel depth=4 lb:custom-bevel blendmode=ColorDodge gimp:layer-mode layer-mode=hsl-color composite-mode=auto aux=[ ref=1  median-blur radius=50 alpha-percentile=100 ]  "\
 
 
 
 
 #define g6 \
-" id=1 color-overlay value=#ff0f00 cubism tile-size=14 seed=23 median-blur radius=2 median-blur radius=9 alpha-percentile=70 neighborhood=diamond lb:threshold-alpha opacity value=1 median-blur radius=0 custom-bevel depth=4 custom-bevel blendmode=ColorDodge gimp:layer-mode layer-mode=hsl-color composite-mode=auto aux=[ ref=1  median-blur radius=50 alpha-percentile=100 ]  "\
+" id=1 color-overlay value=#ff0f00 cubism tile-size=14 seed=23 median-blur radius=2 median-blur radius=9 alpha-percentile=70 neighborhood=diamond lb:threshold-alpha opacity value=1 median-blur radius=0 lb:custom-bevel depth=4 lb:custom-bevel blendmode=ColorDodge gimp:layer-mode layer-mode=hsl-color composite-mode=auto aux=[ ref=1  median-blur radius=50 alpha-percentile=100 ]  "\
 
 
 
 
 
 #define g7 \
-" id=1 color-overlay value=red cubism tile-size=7 seed=93 median-blur radius=1 median-blur radius=4 alpha-percentile=70 neighborhood=diamond lb:threshold-alpha opacity value=1 median-blur radius=0 custom-bevel depth=4 custom-bevel blendmode=ColorDodge gimp:layer-mode layer-mode=hsl-color composite-mode=auto aux=[ ref=1  median-blur radius=50 alpha-percentile=100 ]   "\
+" id=1 color-overlay value=red cubism tile-size=7 seed=93 median-blur radius=1 median-blur radius=4 alpha-percentile=70 neighborhood=diamond lb:threshold-alpha opacity value=1 median-blur radius=0 lb:custom-bevel depth=4 lb:custom-bevel blendmode=ColorDodge gimp:layer-mode layer-mode=hsl-color composite-mode=auto aux=[ ref=1  median-blur radius=50 alpha-percentile=100 ]   "\
 
 
 
@@ -78,7 +78,7 @@ Check which numbers correspond to what g graph
 " cubism tile-size=2 emboss depth=4 "\
 
 #define g10 \
-" gaussian-blur std-dev-x=2 std-dev-y=2 id=1 lb:glassovertext over aux=[ ref=1 ssg stroke=1 colorssg=#0a0028  blurstroke=2 opacityssg=2.5 ] gray "\
+" gaussian-blur std-dev-x=2 std-dev-y=2 id=1 lb:glassovertext over aux=[ ref=1 lb:ssg stroke=1 colorssg=#0a0028  blurstroke=2 opacityssg=2.5 ] gray "\
 
 
 
@@ -123,13 +123,13 @@ Check which numbers correspond to what g graph
 "  color-overlay value=#ffffff cubism tile-size=8 seed=33 gaussian-blur std-dev-x=3.5 std-dev-y-=3.5 dropshadow x=0 y=0 opacity=0.6  "\
 
 #define g19 \
-" color-overlay value=white gaussian-blur std-dev-x=12 std-dev-y=12 id=1 hard-light  aux=[ ref=1 emboss depth=30 elevation=20 ] cubism tile-size=5 opacity value=2.6 lb:threshold-alpha median-blur radius=0 cubism tile-size=5 id=2 over aux=[ ref=2] shift shift=2 shift shift=2 direction=vertical gimp:threshold-alpha id=3 multiply aux=[ ref=3 noise-rgb red=0 green=0 blue=0 opacity value=3  ] id=replace gimp:layer-mode layer-mode=replace opacity=0.80 aux=[ ref=replace lb:edgesmooth gaus=2 value=1 alpha-percentile2=90 ] gaussian-blur std-dev-x=0.5 std-dev-y=0.50 median-blur radius=0 id=6 gimp:layer-mode layer-mode=difference blend-space=rgb-perceptual opacity=0.30 composite-mode=auto aux=[ ref=6 image-gradient output-mode=magnitude  ] ripple amplitude=1.19 period=19 phi=-02 angle=0 sampler-type=cubic wave-type=sine abyss-policy=clamp tileable=yes id=7 over aux=[ ref=7 softglow opacity value=0.2  ] id=8 gimp:layer-mode layer-mode=behind opacity=0.14 aux=[ ref=8 lb:skeleton xstretch=0.68 ystretch=0.6 internalcubism=1.6 seed=1992011 color=#ffffff ] levels out-low=0.011 "\
+" nop  "\
 
 #define g20 \
-" color-overlay value=white gaussian-blur std-dev-x=12 std-dev-y=12 id=1 screen srgb=true  aux=[ ref=1 emboss depth=30 elevation=20 ] cubism tile-size=5 opacity value=2.6 lb:threshold-alpha median-blur radius=0 cubism tile-size=5 id=2 over aux=[ ref=2] shift shift=2 shift shift=2 direction=vertical gimp:threshold-alpha id=3 multiply aux=[ ref=3 noise-rgb red=0 green=0 blue=0 opacity value=3  ] id=replace gimp:layer-mode layer-mode=replace opacity=0.80 aux=[ ref=replace lb:edgesmooth gaus=2 value=1 alpha-percentile2=90 ] gaussian-blur std-dev-x=0.5 std-dev-y=0.50 median-blur radius=0 id=6 gimp:layer-mode layer-mode=difference blend-space=rgb-perceptual opacity=0.30 composite-mode=auto aux=[ ref=6 image-gradient output-mode=magnitude  ] ripple amplitude=1.19 period=19 phi=-02 angle=0 sampler-type=cubic wave-type=sine abyss-policy=clamp tileable=yes id=7 over aux=[ ref=7 softglow opacity value=0.2  ] id=8 gimp:layer-mode layer-mode=behind opacity=0.14 aux=[ ref=8 lb:skeleton xstretch=0.68 ystretch=0.6 internalcubism=1.6 seed=1992011 color=#ffffff ] levels out-low=0.011 "\
+" nop "\
 
 #define g21 \
-" color-overlay value=white gaussian-blur std-dev-x=12 std-dev-y=12 id=1 gimp:layer-mode layer-mode=grain-merge aux=[ ref=1 emboss depth=30 elevation=20 ] cubism tile-size=5 opacity value=2.6 lb:threshold-alpha median-blur radius=0 cubism tile-size=5 id=2 over aux=[ ref=2] shift shift=2 shift shift=2 direction=vertical gimp:threshold-alpha id=3 multiply aux=[ ref=3 noise-rgb red=0 green=0 blue=0 opacity value=3  ] id=replace gimp:layer-mode layer-mode=replace opacity=0.80 aux=[ ref=replace lb:edgesmooth gaus=2 value=1 alpha-percentile2=90 ] gaussian-blur std-dev-x=0.5 std-dev-y=0.50 median-blur radius=0 id=6 gimp:layer-mode layer-mode=difference blend-space=rgb-perceptual opacity=0.30 composite-mode=auto aux=[ ref=6 image-gradient output-mode=magnitude  ] ripple amplitude=1.19 period=19 phi=-02 angle=0 sampler-type=cubic wave-type=sine abyss-policy=clamp tileable=yes id=7 over aux=[ ref=7 softglow opacity value=0.2  ] id=8 gimp:layer-mode layer-mode=behind opacity=0.14 aux=[ ref=8 lb:skeleton xstretch=0.68 ystretch=0.6 internalcubism=1.6 seed=1992011 color=#ffffff ] levels out-low=0.011    "\
+" nop   "\
 
 #define g22 \
 " nop  "\
@@ -211,11 +211,11 @@ enum_start (niche_textrandom)
   enum_value (crazy18,      "crazy18",
               N_("Cloud Text"))
   enum_value (crazy19,      "crazy19",
-              N_("Fuzz Text (Hard Light)"))
+              N_("NO CONTENT YET"))
   enum_value (crazy20,      "crazy20",
-              N_("Fuzz Text (Screen)"))
+              N_("NO CONTENT YET"))
   enum_value (crazy21,      "crazy21",
-              N_("Fuzz Text (Grain Merge)"))
+              N_("NO CONTENT YET"))
   enum_value (crazy22,      "crazy22",
               N_("NO CONTENT YET"))
   enum_value (crazy23,      "crazy23",

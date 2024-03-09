@@ -206,8 +206,8 @@ xor = gegl_node_new_child (gegl,
 
   gegl_node_link_many (input, hopacity, median, blur, id1, ssg, xor, color, atop, opacity, output, NULL);
   gegl_node_link_many (image, hue, blur2, NULL);
-  gegl_node_connect_from (xor, "aux", id1, "output");
-  gegl_node_connect_from (atop, "aux", blur2, "output");
+  gegl_node_connect (xor, "aux", id1, "output");
+  gegl_node_connect (atop, "aux", blur2, "output");
 
 
 
@@ -225,7 +225,7 @@ gegl_op_class_init (GeglOpClass *klass)
   operation_class->attach = attach;
 
   gegl_operation_class_set_keys (operation_class,
-    "name",        "gegl:ssg",
+    "name",        "lb:ssg",
     "title",       _("Add a Stroke, Shadow or Glow"),
     "categories",  "Artistic",
     "reference-hash", "3ado316vg22a00x03vv5sb2ac",

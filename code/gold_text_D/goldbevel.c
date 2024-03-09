@@ -16,7 +16,7 @@
  * Copyright 2006 Øyvind Kolås <pippin@gimp.org>
  * 2023 Beaver (GEGL Gold)
 
-Requires plugins lb:innerglow, gegl:embosstexture, lb:threshold-alpha, gegl:edge-extract to work proper.
+Requires plugins lb:innerglow, lb:embosstexture, lb:threshold-alpha, lb:edge-extract to work proper.
 Said plugins ship with this filter.
 
 Rough Graph recreation here. If you paste this syntax in GEGL Graph you can loosely test this plugin without installing it. 
@@ -26,7 +26,7 @@ gaussian-blur std-dev-x=7 std-dev-y=7
 id=first2
 plus aux=[ ref=first2 emboss depth=55 elevation=13 azimuth=94 opacity value=3.9 ]
 median-blur radius=0
- id=ig alien-map cpn-1-frequency=5 cpn-2-frequency=3 cpn-2-frequency=13 gimp:desaturate mode=average hue-chroma lightness=-13 opacity value=6.0 id=color gimp:layer-mode layer-mode=hsl-color composite-mode=auto opacity=0.021  composite-mode=auto  aux=[ ref=color color-overlay value=#ffec2b box-blur radius=30 ] noise-reduction iterations=3 gimp:layer-mode layer-mode=grain-merge opacity=0.54 composite-mode=auto aux=[ ref=ig lb:innerglow radius=14 value2=#ffeb2b gaussian-blur std-dev-x=5 std-dev-y=5 ] levels in-low=0.032 id=shadow gimp:layer-mode layer-mode=behind opacity=0.033 aux=[ ref=shadow color-overlay value=#000000 gaussian-blur std-dev-x=12 std-dev-y=12  translate x=6 y=15  ] saturation scale=1.00 lb:threshold-alpha alphadegree=0.7 median-blur radius=0 id=ee gimp:layer-mode layer-mode=subtract opacity=0.07 aux=[ ref=ee edge-extract ] id=et gimp:layer-mode layer-mode=subtract opacity=0.015 aux=[ ref=et  embosstexture ] median-blur radius=0 id=sg gimp:layer-mode layer-mode=normal opacity=0.25 aux=[ ref=sg softglow brightness=0.45 ] bloom strength=20 id=dog gimp:layer-mode  layer-mode=grain-merge opacity=0.19 aux=[ ref=dog difference-of-gaussians ]
+ id=ig alien-map cpn-1-frequency=5 cpn-2-frequency=3 cpn-2-frequency=13 gimp:desaturate mode=average hue-chroma lightness=-13 opacity value=6.0 id=color gimp:layer-mode layer-mode=hsl-color composite-mode=auto opacity=0.021  composite-mode=auto  aux=[ ref=color color-overlay value=#ffec2b box-blur radius=30 ] noise-reduction iterations=3 gimp:layer-mode layer-mode=grain-merge opacity=0.54 composite-mode=auto aux=[ ref=ig lb:innerglow radius=14 value2=#ffeb2b gaussian-blur std-dev-x=5 std-dev-y=5 ] levels in-low=0.032 id=shadow gimp:layer-mode layer-mode=behind opacity=0.033 aux=[ ref=shadow color-overlay value=#000000 gaussian-blur std-dev-x=12 std-dev-y=12  translate x=6 y=15  ] saturation scale=1.00 lb:threshold-alpha alphadegree=0.7 median-blur radius=0 id=ee gimp:layer-mode layer-mode=subtract opacity=0.07 aux=[ ref=ee lb:edge-extract ] id=et gimp:layer-mode layer-mode=subtract opacity=0.015 aux=[ ref=et  lb:embosstexture ] median-blur radius=0 id=sg gimp:layer-mode layer-mode=normal opacity=0.25 aux=[ ref=sg softglow brightness=0.45 ] bloom strength=20 id=dog gimp:layer-mode  layer-mode=grain-merge opacity=0.19 aux=[ ref=dog difference-of-gaussians ]
 hue-chroma lightness=9
 
 
@@ -39,7 +39,7 @@ hue-chroma lightness=9
 
  /*This is a long GEGL graph that makes a gold effect on top of a specialized custom bevel like command. This depends on my plugins Inner Glow, Advance Emboss, Threshold Alpha 2, and Edge Extract.*/
 #define GEGLGRAPHSTRING \
-" id=ig alien-map cpn-1-frequency=5 cpn-2-frequency=3 cpn-2-frequency=13 gimp:desaturate mode=average hue-chroma lightness=-13 opacity value=6.0 id=color gimp:layer-mode layer-mode=hsl-color composite-mode=auto opacity=0.021  composite-mode=auto  aux=[ ref=color color-overlay value=#ffec2b box-blur radius=30 ] noise-reduction iterations=3 gimp:layer-mode layer-mode=grain-merge opacity=0.54 composite-mode=auto aux=[ ref=ig lb:innerglow radius=14 value2=#ffeb2b gaussian-blur std-dev-x=5 std-dev-y=5 ] levels in-low=0.032 id=shadow gimp:layer-mode layer-mode=behind opacity=0.033 aux=[ ref=shadow color-overlay value=#000000 gaussian-blur std-dev-x=12 std-dev-y=12  translate x=6 y=15  ] saturation scale=1.00 lb:threshold-alpha alphadegree=0.7 median-blur radius=0 id=ee gimp:layer-mode layer-mode=subtract opacity=0.07 aux=[ ref=ee edge-extract ] id=et gimp:layer-mode layer-mode=subtract opacity=0.015 aux=[ ref=et  embosstexture ] median-blur radius=0 id=sg gimp:layer-mode layer-mode=normal opacity=0.25 aux=[ ref=sg softglow brightness=0.45 ] bloom strength=20 id=dog gimp:layer-mode  layer-mode=grain-merge opacity=0.19 aux=[ ref=dog difference-of-gaussians ] "\
+" id=ig alien-map cpn-1-frequency=5 cpn-2-frequency=3 cpn-2-frequency=13 gimp:desaturate mode=average hue-chroma lightness=-13 opacity value=6.0 id=color gimp:layer-mode layer-mode=hsl-color composite-mode=auto opacity=0.021  composite-mode=auto  aux=[ ref=color color-overlay value=#ffec2b box-blur radius=30 ] noise-reduction iterations=3 gimp:layer-mode layer-mode=grain-merge opacity=0.54 composite-mode=auto aux=[ ref=ig lb:innerglow radius=14 value2=#ffeb2b gaussian-blur std-dev-x=5 std-dev-y=5 ] levels in-low=0.032 id=shadow gimp:layer-mode layer-mode=behind opacity=0.033 aux=[ ref=shadow color-overlay value=#000000 gaussian-blur std-dev-x=12 std-dev-y=12  translate x=6 y=15  ] saturation scale=1.00 lb:threshold-alpha alphadegree=0.7 median-blur radius=0 id=ee gimp:layer-mode layer-mode=subtract opacity=0.07 aux=[ ref=ee lb:edge-extract ] id=et gimp:layer-mode layer-mode=subtract opacity=0.015 aux=[ ref=et  lb:embosstexture ] median-blur radius=0 id=sg gimp:layer-mode layer-mode=normal opacity=0.25 aux=[ ref=sg softglow brightness=0.45 ] bloom strength=20 id=dog gimp:layer-mode  layer-mode=grain-merge opacity=0.19 aux=[ ref=dog difference-of-gaussians ] "\
 
 enum_start (meme_gold_text)
   enum_value (GEGL_BLEND_MODE_TYPE_COLORDODGE,      "colordodge",
@@ -158,7 +158,7 @@ default: usethis = state->plus;
 /*Above contains most of the GEGL GRAPH, the first command (white) forces a white color overlay, ignoring whatever the color original was. 
 After that is gaussian blur connecting to a blendable emboss (usethis) to make a bevel.
 Then (gold mega graph) which is a long string of GEGL syntax is added on top of the bevel to make a gold metallic effect on the bevel*/
-  gegl_node_connect_from (usethis, "aux", state->emboss, "output");
+  gegl_node_connect (usethis, "aux", state->emboss, "output");
   gegl_node_link_many (state->gaussian, state->emboss,  NULL);
 /*Emboss is being instructed to fuse with a selected blend mode.*/
   }

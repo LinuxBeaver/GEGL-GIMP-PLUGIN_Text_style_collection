@@ -117,7 +117,7 @@ in a damaged way because there global opacity is way to high. Median blur radius
 
 gegl_node_link_many(input, graph, behind, fixgraph, output, NULL);
 gegl_node_link_many(input,  median, gaussian, opacity, median2,  NULL);
-gegl_node_connect_from (behind, "aux", median2, "output"); 
+gegl_node_connect (behind, "aux", median2, "output"); 
 
   gegl_operation_meta_redirect (operation, "gaus", gaussian, "std-dev-x");
   gegl_operation_meta_redirect (operation, "gaus", gaussian, "std-dev-y");

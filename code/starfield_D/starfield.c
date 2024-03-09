@@ -149,7 +149,6 @@ static void attach (GeglOperation *operation)
     gegl_operation_meta_redirect (operation, "out_high", levels, "out-high");
     gegl_operation_meta_redirect (operation, "saturation", saturation, "scale");
     gegl_operation_meta_redirect (operation, "factor", zmb, "factor");
-    gegl_operation_meta_redirect (operation, "string",  graph, "string");
 
 
   gegl_node_link_many (input, graph, color, noise, invert, levels, gamma, blur, glow, saturation, zmb, output, NULL);
@@ -169,7 +168,7 @@ gegl_op_class_init (GeglOpClass *klass)
   operation_class->attach = attach;
 
   gegl_operation_class_set_keys (operation_class,
-    "name",        "gegl:starfield",
+    "name",        "lb:starfield",
     "title",       _("Starfield"),
     "categories",  "Aristic",
     "reference-hash", "45eak6vgah28vf20fno25sb2ac",

@@ -196,7 +196,7 @@ default: usethis = state->hardlight;
 
   }
   gegl_node_link_many (state->input, state->gray, usethis, state->gaussian, state->opacity, state->mcb, state->sharpen, state->desat, state->multiply2, state->nop, state->mcol, state->lightness, state->dn, state->output,  NULL);
-  gegl_node_connect_from (usethis, "aux", state->emboss, "output");
+  gegl_node_connect (usethis, "aux", state->emboss, "output");
 
 }
 
@@ -336,9 +336,9 @@ addition = gegl_node_new_child (gegl,
 
 
   gegl_node_link_many (input, gray, emboss, gaussian, opacity, mcb, sharpen, multiply2, nop, mcol, lightness, dn, output,  NULL);
-  gegl_node_connect_from (hardlight, "aux", emboss, "output");
-  gegl_node_connect_from (mcol, "aux", col, "output");
-  gegl_node_connect_from (multiply2, "aux", imagefileoverlay, "output");
+  gegl_node_connect (hardlight, "aux", emboss, "output");
+  gegl_node_connect (mcol, "aux", col, "output");
+  gegl_node_connect (multiply2, "aux", imagefileoverlay, "output");
   gegl_node_link_many (nop, col,  NULL);
 
 
@@ -389,7 +389,7 @@ GeglOperationMetaClass *operation_meta_class = GEGL_OPERATION_META_CLASS (klass)
   operation_meta_class->update = update_graph;
 
   gegl_operation_class_set_keys (operation_class,
-    "name",        "gegl:embosstexture",
+    "name",        "lb:embosstexture",
     "title",       _("Advance Emboss"),
     "categories",  "Artistic",
     "reference-hash", "em3d33efjf25612ac",

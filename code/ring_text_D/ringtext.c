@@ -23,12 +23,12 @@ id=1
 dst-out aux=[ ref=1
 
 median-blur radius=5 alpha-percentile=0
-ssg radius=0 stroke=6
-ssg radius=0 stroke=6
-ssg radius=0 stroke=6
-ssg radius=0 stroke=6
-ssg radius=0 stroke=6
-ssg radius=0 stroke=6
+lb:ssg radius=0 stroke=6
+lb:ssg radius=0 stroke=6
+lb:ssg radius=0 stroke=6
+lb:ssg radius=0 stroke=6
+lb:ssg radius=0 stroke=6
+lb:ssg radius=0 stroke=6
 ]
 crop
 
@@ -160,7 +160,7 @@ static void attach (GeglOperation *operation)
                                   "operation", "gegl:nop", 
                                   NULL);
 #define sixteenrings \
-" id=contain src aux=[ ref=contain  id=1 dst-out aux=[ ref=1 median-blur radius=5 alpha-percentile=0 ssg radius=0 stroke=2 ssg radius=0 stroke=2 ssg radius=0 stroke=2 ssg radius=0 stroke=2 ssg radius=0 stroke=2 ssg radius=0 stroke=2 ssg radius=0 stroke=2 ssg radius=0 stroke=2 ssg radius=0 stroke=2 ssg radius=0 stroke=2 ssg radius=0 stroke=2 ssg radius=0 stroke=2 ssg radius=0 stroke=2 ssg radius=0 stroke=2 ssg radius=0 stroke=2 ssg radius=0 stroke=2 ] crop   "\
+" id=contain src aux=[ ref=contain  id=1 dst-out aux=[ ref=1 median-blur radius=5 alpha-percentile=0 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 ] crop   "\
 
 
   state->crazy = gegl_node_new_child (gegl,
@@ -172,27 +172,27 @@ static void attach (GeglOperation *operation)
                                   NULL);
 
   state->s1 = gegl_node_new_child (gegl,
-                                  "operation", "gegl:ssg", "radius", 0, "stroke", 7.0,  
+                                  "operation", "lb:ssg", "radius", 0, "stroke", 7.0,  
                                   NULL);
 
   state->s2 = gegl_node_new_child (gegl,
-                                  "operation", "gegl:ssg", "radius", 0, "stroke", 7.0,  
+                                  "operation", "lb:ssg", "radius", 0, "stroke", 7.0,  
                                   NULL);
 
   state->s3 = gegl_node_new_child (gegl,
-                                  "operation", "gegl:ssg", "radius", 0, "stroke", 7.0,  
+                                  "operation", "lb:ssg", "radius", 0, "stroke", 7.0,  
                                   NULL);
 
   state->s4 = gegl_node_new_child (gegl,
-                                  "operation", "gegl:ssg", "radius", 0, "stroke", 7.0,  
+                                  "operation", "lb:ssg", "radius", 0, "stroke", 7.0,  
                                   NULL);
 
   state->s5 = gegl_node_new_child (gegl,
-                                  "operation", "gegl:ssg", "radius", 0, "stroke", 7.0,  
+                                  "operation", "lb:ssg", "radius", 0, "stroke", 7.0,  
                                   NULL);
 
   state->s6 = gegl_node_new_child (gegl,
-                                  "operation", "gegl:ssg", "radius", 0, "stroke", 7.0,  
+                                  "operation", "lb:ssg", "radius", 0, "stroke", 7.0,  
                                   NULL);
 
   state->median = gegl_node_new_child (gegl,
@@ -211,7 +211,7 @@ static void attach (GeglOperation *operation)
     gegl_operation_meta_redirect (operation, "ringsize", state->s5, "stroke");
     gegl_operation_meta_redirect (operation, "ringsize", state->s6, "stroke");
 
-/*This controls the shape of the rings; outside of the 16 ring graph. It is gegl:ssg grow-shape=square,circle,diamond*/
+/*This controls the shape of the rings; outside of the 16 ring graph. It is lb:ssg grow-shape=square,circle,diamond*/
     gegl_operation_meta_redirect (operation, "ringshape", state->s1, "grow-shape");
     gegl_operation_meta_redirect (operation, "ringshape", state->s2, "grow-shape");
     gegl_operation_meta_redirect (operation, "ringshape", state->s3, "grow-shape");
@@ -235,32 +235,32 @@ switch (o->rings) {
     case onering:
   gegl_node_link_many (state->input, state->mediandictator,  state->idref, state->erase, state->syntax, state->output, NULL);
   gegl_node_link_many (state->idref, state->median, state->s1, state->fix, NULL);
-  gegl_node_connect_from (state->erase, "aux", state->fix, "output");
+  gegl_node_connect (state->erase, "aux", state->fix, "output");
         break;
     case tworings:
   gegl_node_link_many (state->input, state->mediandictator,   state->idref, state->erase, state->syntax,  state->output, NULL);
   gegl_node_link_many (state->idref, state->median, state->s1, state->s2, state->fix, NULL);
-  gegl_node_connect_from (state->erase, "aux", state->fix, "output");
+  gegl_node_connect (state->erase, "aux", state->fix, "output");
         break;
     case threerings:
   gegl_node_link_many (state->input, state->mediandictator,  state->idref, state->erase, state->syntax,  state->output, NULL);
   gegl_node_link_many (state->idref, state->median, state->s1, state->s2, state->s3,   state->fix, NULL);
-  gegl_node_connect_from (state->erase, "aux", state->fix, "output");
+  gegl_node_connect (state->erase, "aux", state->fix, "output");
         break;
     case fourrings:
   gegl_node_link_many (state->input, state->mediandictator, state->idref, state->erase, state->syntax, state->output, NULL);
   gegl_node_link_many (state->idref, state->median, state->s1, state->s2, state->s3, state->s4, state->fix, NULL);
-  gegl_node_connect_from (state->erase, "aux", state->fix, "output");
+  gegl_node_connect (state->erase, "aux", state->fix, "output");
         break;
     case fiverings:
   gegl_node_link_many (state->input, state->mediandictator, state->idref, state->erase, state->syntax, state->output, NULL);
   gegl_node_link_many (state->idref, state->median, state->s1, state->s2, state->s3, state->s4, state->s5, state->fix, NULL);
-  gegl_node_connect_from (state->erase, "aux", state->fix, "output");
+  gegl_node_connect (state->erase, "aux", state->fix, "output");
         break;
     case sixrings:
   gegl_node_link_many (state->input, state->mediandictator, state->idref, state->erase, state->syntax,  state->output, NULL);
   gegl_node_link_many (state->idref, state->median, state->s1, state->s2, state->s3, state->s4, state->s5, state->s6, state->fix,  NULL);
-  gegl_node_connect_from (state->erase, "aux", state->fix, "output");
+  gegl_node_connect (state->erase, "aux", state->fix, "output");
         break;
     case absurd:
   gegl_node_link_many (state->input, state->mediandictator, state->crazy, state->fix, state->syntax, state->output, NULL);

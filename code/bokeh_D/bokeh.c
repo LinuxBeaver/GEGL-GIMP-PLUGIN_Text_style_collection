@@ -159,18 +159,17 @@ plugins like clay, glossy balloon and custom bevel glitch out when
 drop shadow is applied in a gegl graph below them.*/
  
   gegl_node_link_many (input, putinside, replace, crop, output, NULL);
-  gegl_node_connect_from (replace, "aux", repairgeglgraph, "output");
+  gegl_node_connect (replace, "aux", repairgeglgraph, "output");
   gegl_node_link_many (putinside, color, divide, median, c2a, coloroverlay, opacity, blur, repairgeglgraph, NULL);
 
-  gegl_node_connect_from (divide, "aux", noise, "output");
+  gegl_node_connect (divide, "aux", noise, "output");
 
-    gegl_operation_meta_redirect (operation, "value", color, "value");
+
     gegl_operation_meta_redirect (operation, "opacity", opacity, "value");
     gegl_operation_meta_redirect (operation, "size", median, "radius");
     gegl_operation_meta_redirect (operation, "color", coloroverlay, "value");
     gegl_operation_meta_redirect (operation, "neighborhood", median, "neighborhood");
     gegl_operation_meta_redirect (operation, "amount", noise, "scale");
-    gegl_operation_meta_redirect (operation, "shape", noise, "shape");
     gegl_operation_meta_redirect (operation, "seed", noise, "seed");
     gegl_operation_meta_redirect (operation, "blur", blur, "radius");
 
