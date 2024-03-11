@@ -264,7 +264,7 @@ GeglProperties *o = GEGL_PROPERTIES (operation);
 
 
   gaussian    = gegl_node_new_child (gegl,
-                                  "operation", "gegl:gaussian-blur",
+                                  "operation", "gegl:gaussian-blur", "clip-extent", FALSE,   "abyss-policy", 0,                    
    "filter", 1,
                                   NULL);
 
