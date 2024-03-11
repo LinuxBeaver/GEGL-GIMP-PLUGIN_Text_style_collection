@@ -33,39 +33,39 @@ Check which numbers correspond to what g graph
 #ifdef GEGL_PROPERTIES
 
 #define g1 \
-"   color-overlay value=#f40014 cubism tile-size=8 tile-saturation=22 seed=334 gaussian-blur std-dev-x=3 std-dev-y=3 id=1 gimp:layer-mode layer-mode=grain-extract aux=[ ref=1 lb:bevel radius1=50 bevel1=145 bevel2=92 th=0.60 azimuth=4229 ] box-blur radius=1 brightness-contrast brightness=-0.11 id=3 gimp:layer-mode layer-mode=linear-light  opacity=0.10 aux=[ ref=3 lb:bevel radius1=50  bevel1=145 bevel2=92 th=0.60 azimuth=4 ] opacity value=1.3 median-blur radius=1 alpha-percentile=10 "\
+"   color-overlay value=#f40014 cubism tile-size=8 tile-saturation=22 seed=334 gaussian-blur abyss-policy=none clip-extent=false  std-dev-x=3 std-dev-y=3 id=1 gimp:layer-mode layer-mode=grain-extract aux=[ ref=1 lb:bevel radius1=50 bevel1=145 bevel2=92 th=0.60 azimuth=4229 ] box-blur radius=1 brightness-contrast brightness=-0.11 id=3 gimp:layer-mode layer-mode=linear-light  opacity=0.10 aux=[ ref=3 lb:bevel radius1=50  bevel1=145 bevel2=92 th=0.60 azimuth=4 ] opacity value=1.3 median-blur abyss-policy=none radius=1 alpha-percentile=10 "\
 
 
 #define g2 \
-"  id=n1 gaussian-blur std-dev-x=3 std-dev-y=3 color-overlay value=#52ebff id=0 gimp:layer-mode layer-mode=hardlight aux=[ ref=0 emboss depth=5 ] id=1 gimp:layer-mode layer-mode=hsl-color opacity=0.91 aux=[ ref=1 color-overlay value=#52ebff ] noise-reduction iterations=3 id=2 gimp:layer-mode layer-mode=overlay opacity=0.6 blend-space=rgb-perceptual aux=[ ref=2 wind direction=bottom style=blast threshold=1 seed=23 strength=1 oilify mask-radius=3 ] id=3 gimp:layer-mode layer-mode=softlight blend-space=rgb-perceptual opacity=0.90 aux=[ ref=1 lb:bevel bevel1=90 radius1=1 ] noise-reduction iterations=4 id=4 gimp:layer-mode layer-mode=overlay opacity=0.2 blend-space=rgb-linear aux=[ ref=4  lb:edge-extract wind direction=bottom style=blast threshold=4 seed=13 strength=21 oilify mask-radius=2 lb:custom-bevel box=1 gaus=1 depth=3 blendmode=Overlay coloroverlay=#a3e9ff ] opacity value=1.2 median-blur radius=0  softglow glow-radius=1 hue-chroma chroma=4 median-blur radius=0 id=5 gimp:layer-mode layer-mode=overlay aux=[ ref=5 edge  ] median-blur radius=0 saturation scale=0.5 mean-curvature-blur iterations=7 hue-chroma lightness=-3 gimp:layer-mode layer-mode=split opacity=0.20 aux=[ ref=n1 gaussian-blur ] id=got gimp:layer-mode layer-mode=linear-light opacity=0.75 aux=[ ref=got lb:glassovertext hyperopacity=1.5 azimuth=227 depth=20 ] median-blur radius=0 mean-curvature-blur iterations=1 id=sgh src-atop aux=[ ref=sgh softglow opacity value=0.94   ] id=ov gimp:layer-mode layer-mode=overlay opacity=0.30 aux=[ ref=ov emboss ] median-blur radius=0 "\
+"  id=n1 gaussian-blur abyss-policy=none clip-extent=false std-dev-x=3 std-dev-y=3 color-overlay value=#52ebff id=0 gimp:layer-mode layer-mode=hardlight aux=[ ref=0 emboss depth=5 ] id=1 gimp:layer-mode layer-mode=hsl-color opacity=0.91 aux=[ ref=1 color-overlay value=#52ebff ] noise-reduction iterations=3 id=2 gimp:layer-mode layer-mode=overlay opacity=0.6 blend-space=rgb-perceptual aux=[ ref=2 wind direction=bottom style=blast threshold=1 seed=23 strength=1 oilify mask-radius=3 ] id=3 gimp:layer-mode layer-mode=softlight blend-space=rgb-perceptual opacity=0.90 aux=[ ref=1 lb:bevel bevel1=90 radius1=1 ] noise-reduction iterations=4 id=4 gimp:layer-mode layer-mode=overlay opacity=0.2 blend-space=rgb-linear aux=[ ref=4  lb:edge-extract wind direction=bottom style=blast threshold=4 seed=13 strength=21 oilify mask-radius=2 lb:custom-bevel box=1 gaus=1 depth=3 blendmode=Overlay coloroverlay=#a3e9ff ] opacity value=1.2 median-blur abyss-policy=none radius=0  softglow glow-radius=1 hue-chroma chroma=4 median-blur abyss-policy=none radius=0 id=5 gimp:layer-mode layer-mode=overlay aux=[ ref=5 edge  ] median-blur abyss-policy=none radius=0 saturation scale=0.5 mean-curvature-blur iterations=7 hue-chroma lightness=-3 gimp:layer-mode layer-mode=split opacity=0.20 aux=[ ref=n1 gaussian-blur abyss-policy=none clip-extent=false ] id=got gimp:layer-mode layer-mode=linear-light opacity=0.75 aux=[ ref=got lb:glassovertext hyperopacity=1.5 azimuth=227 depth=20 ] median-blur abyss-policy=none radius=0 mean-curvature-blur iterations=1 id=sgh src-atop aux=[ ref=sgh softglow opacity value=0.94   ] id=ov gimp:layer-mode layer-mode=overlay opacity=0.30 aux=[ ref=ov emboss ] median-blur abyss-policy=none radius=0 "\
 
 
 #define g3 \
-" median-blur radius=25 alpha-percentile=20 cubism tile-size=5  tile-size=9 snn-mean gaussian-blur color-overlay value=#f95dff median-blur  percentile=90 alpha-percentile=290 gaussian-blur std-dev-x=4 std-dev-y=4 id=3 screen aux=[ ref=3  emboss  type=bumpmap azimuth=90  elevation=15 ]  median-blur  percentile=90 alpha-percentile=290 gaussian-blur std-dev-x=4 std-dev-y=4 id=3 screen aux=[ ref=3  emboss  type=bumpmap azimuth=90  elevation=15 ]  median-blur  percentile=90 alpha-percentile=290 screen aux=[ ref=3  emboss  type=bumpmap azimuth=90  elevation=15 ]  median-blur  percentile=90 alpha-percentile=290 screen aux=[ ref=3  emboss  type=bumpmap azimuth=90  elevation=15 ]  opacity value=10 median-blur radius=0 id=color gimp:layer-mode layer-mode=hsv-hue composite-mode=auto aux=[ ref=color  color value=#3c1200 ] levels in-low=0.250 in-high=1.924 out-low=0.056 out-high=0.610 opacity value=4 id=olsn gimp:layer-mode layer-mode=overlay composite-mode=auto opacity=0.16 aux=[ ref=olsn simplex-noise scale=2.31 iterations=1 seed=33  ] median-blur radius=0 lb:edgesmooth hue-chroma lightness=5 chroma=-8 median-blur radius=2 id=lchhuerecolor gimp:layer-mode composite-mode=auto layer-mode=lch-hue aux=[ ref=lchhuerecolor  color value=#ffca9e ] id=ba gimp:layer-mode layer-mode=burn blend-space=rgb-perceptual opacity=0.16 composite-mode=auto aux=[ ref=ba ] hue-chroma lightness=3 median-blur radius=0 bloom strength=50 median-blur radius=0 id=anotherhue gimp:layer-mode layer-mode=hsv-hue composite-mode=clip-to-backdrop aux=[ ref=anotherhue color value=#ff8200 ] "\
+" median-blur abyss-policy=none radius=25 alpha-percentile=20 cubism tile-size=5  tile-size=9 snn-mean gaussian-blur abyss-policy=none clip-extent=false color-overlay value=#f95dff median-blur abyss-policy=none  percentile=90 alpha-percentile=290 gaussian-blur abyss-policy=none clip-extent=false std-dev-x=4 std-dev-y=4 id=3 screen aux=[ ref=3  emboss  type=bumpmap azimuth=90  elevation=15 ]  median-blur abyss-policy=none  percentile=90 alpha-percentile=290 gaussian-blur abyss-policy=none clip-extent=false std-dev-x=4 std-dev-y=4 id=3 screen aux=[ ref=3  emboss  type=bumpmap azimuth=90  elevation=15 ]  median-blur abyss-policy=none  percentile=90 alpha-percentile=290 screen aux=[ ref=3  emboss  type=bumpmap azimuth=90  elevation=15 ]  median-blur abyss-policy=none  percentile=90 alpha-percentile=290 screen aux=[ ref=3  emboss  type=bumpmap azimuth=90  elevation=15 ]  opacity value=10 median-blur abyss-policy=none radius=0 id=color gimp:layer-mode layer-mode=hsv-hue composite-mode=auto aux=[ ref=color  color value=#3c1200 ] levels in-low=0.250 in-high=1.924 out-low=0.056 out-high=0.610 opacity value=4 id=olsn gimp:layer-mode layer-mode=overlay composite-mode=auto opacity=0.16 aux=[ ref=olsn simplex-noise scale=2.31 iterations=1 seed=33  ] median-blur abyss-policy=none radius=0 lb:edgesmooth hue-chroma lightness=5 chroma=-8 median-blur abyss-policy=none radius=2 id=lchhuerecolor gimp:layer-mode composite-mode=auto layer-mode=lch-hue aux=[ ref=lchhuerecolor  color value=#ffca9e ] id=ba gimp:layer-mode layer-mode=burn blend-space=rgb-perceptual opacity=0.16 composite-mode=auto aux=[ ref=ba ] hue-chroma lightness=3 median-blur abyss-policy=none radius=0 bloom strength=50 median-blur abyss-policy=none radius=0 id=anotherhue gimp:layer-mode layer-mode=hsv-hue composite-mode=clip-to-backdrop aux=[ ref=anotherhue color value=#ff8200 ] "\
 
 
 
 
 #define g4 \
-" id=1 color-overlay value=red cubism tile-size=10 seed=23 median-blur radius=2 median-blur radius=9 alpha-percentile=70 neighborhood=diamond lb:threshold-alpha opacity value=1 median-blur radius=0 lb:custom-bevel depth=4 lb:custom-bevel blendmode=ColorDodge gimp:layer-mode layer-mode=hsl-color composite-mode=auto aux=[ ref=1  median-blur radius=50 alpha-percentile=100 ] "\
+" id=1 color-overlay value=red cubism tile-size=10 seed=23 median-blur abyss-policy=none radius=2 median-blur abyss-policy=none radius=9 alpha-percentile=70 neighborhood=diamond lb:threshold-alpha opacity value=1 median-blur abyss-policy=none radius=0 lb:custom-bevel depth=4 lb:custom-bevel blendmode=ColorDodge gimp:layer-mode layer-mode=hsl-color composite-mode=auto aux=[ ref=1  median-blur abyss-policy=none radius=50 alpha-percentile=100 ] "\
 
 
 
 #define g5 \
-" id=1 color-overlay value=#ff0f00 cubism tile-size=15 seed=23 median-blur radius=2 median-blur radius=9 alpha-percentile=70 neighborhood=diamond lb:threshold-alpha opacity value=1 median-blur radius=0 lb:custom-bevel depth=4 lb:custom-bevel blendmode=ColorDodge gimp:layer-mode layer-mode=hsl-color composite-mode=auto aux=[ ref=1  median-blur radius=50 alpha-percentile=100 ]  "\
+" id=1 color-overlay value=#ff0f00 cubism tile-size=15 seed=23 median-blur abyss-policy=none radius=2 median-blur abyss-policy=none radius=9 alpha-percentile=70 neighborhood=diamond lb:threshold-alpha opacity value=1 median-blur abyss-policy=none radius=0 lb:custom-bevel depth=4 lb:custom-bevel blendmode=ColorDodge gimp:layer-mode layer-mode=hsl-color composite-mode=auto aux=[ ref=1  median-blur abyss-policy=none radius=50 alpha-percentile=100 ]  "\
 
 
 
 
 #define g6 \
-" id=1 color-overlay value=#ff0f00 cubism tile-size=14 seed=23 median-blur radius=2 median-blur radius=9 alpha-percentile=70 neighborhood=diamond lb:threshold-alpha opacity value=1 median-blur radius=0 lb:custom-bevel depth=4 lb:custom-bevel blendmode=ColorDodge gimp:layer-mode layer-mode=hsl-color composite-mode=auto aux=[ ref=1  median-blur radius=50 alpha-percentile=100 ]  "\
+" id=1 color-overlay value=#ff0f00 cubism tile-size=14 seed=23 median-blur abyss-policy=none radius=2 median-blur abyss-policy=none radius=9 alpha-percentile=70 neighborhood=diamond lb:threshold-alpha opacity value=1 median-blur abyss-policy=none radius=0 lb:custom-bevel depth=4 lb:custom-bevel blendmode=ColorDodge gimp:layer-mode layer-mode=hsl-color composite-mode=auto aux=[ ref=1  median-blur abyss-policy=none radius=50 alpha-percentile=100 ]  "\
 
 
 
 
 
 #define g7 \
-" id=1 color-overlay value=red cubism tile-size=7 seed=93 median-blur radius=1 median-blur radius=4 alpha-percentile=70 neighborhood=diamond lb:threshold-alpha opacity value=1 median-blur radius=0 lb:custom-bevel depth=4 lb:custom-bevel blendmode=ColorDodge gimp:layer-mode layer-mode=hsl-color composite-mode=auto aux=[ ref=1  median-blur radius=50 alpha-percentile=100 ]   "\
+" id=1 color-overlay value=red cubism tile-size=7 seed=93 median-blur abyss-policy=none radius=1 median-blur abyss-policy=none radius=4 alpha-percentile=70 neighborhood=diamond lb:threshold-alpha opacity value=1 median-blur abyss-policy=none radius=0 lb:custom-bevel depth=4 lb:custom-bevel blendmode=ColorDodge gimp:layer-mode layer-mode=hsl-color composite-mode=auto aux=[ ref=1  median-blur abyss-policy=none radius=50 alpha-percentile=100 ]   "\
 
 
 
@@ -78,49 +78,49 @@ Check which numbers correspond to what g graph
 " cubism tile-size=2 emboss depth=4 "\
 
 #define g10 \
-" gaussian-blur std-dev-x=2 std-dev-y=2 id=1 lb:glassovertext over aux=[ ref=1 lb:ssg stroke=1 colorssg=#0a0028  blurstroke=2 opacityssg=2.5 ] gray "\
+" gaussian-blur abyss-policy=none clip-extent=false std-dev-x=2 std-dev-y=2 id=1 lb:glassovertext over aux=[ ref=1 lb:ssg stroke=1 colorssg=#0a0028  blurstroke=2 opacityssg=2.5 ] gray "\
 
 
 
 
 #define g11 \
-" transform transform=matrix(0.85676532983779907,-0.083190269768238068,-1.0763975295356106e-19,0.15398488938808441,1.0494217872619629,-2.1621131194246602e-19,35.636863708496094,106.15763092041016,1)   sampler=nohalo gegl:color-overlay value=#dbdbdb svg:src-atop aux=[gegl:layer noise-solid levels in-low=-0.4        gimp:layer-mode layer-mode=grain-merge composite-mode=clip-to-backdrop aux=[ color value=#07ff00  ] ]  crop gaussian-blur emboss  type=bumpmap azimuth=30 elevation=45 depth=12 gegl:dropshadow x=0.00  y=0 radius=0.00 grow-shape=circle grow-radius=1 opacity=2 color=#ffffff gegl:dropshadow x=0.00  y=0 radius=0.00 grow-shape=circle grow-radius=6 opacity=1 color=#ffffff gegl:dropshadow x=0.00  y=0.00 radius=0.00 grow-shape=circle grow-radius=6 opacity=1 color=#000000 gegl:dropshadow opacity=0.4 radius=0.1 x=-1.8 y=2.8 gegl:long-shadow style=finite angle=152.94 length=11 midpoint=100 midpoint-rel=0.5 color=#000000 composition=shadow-plus-image   "\
+" transform transform=matrix(0.85676532983779907,-0.083190269768238068,-1.0763975295356106e-19,0.15398488938808441,1.0494217872619629,-2.1621131194246602e-19,35.636863708496094,106.15763092041016,1)   sampler=nohalo gegl:color-overlay value=#dbdbdb svg:src-atop aux=[gegl:layer noise-solid levels in-low=-0.4        gimp:layer-mode layer-mode=grain-merge composite-mode=clip-to-backdrop aux=[ color value=#07ff00  ] ]  crop gaussian-blur abyss-policy=none clip-extent=false emboss  type=bumpmap azimuth=30 elevation=45 depth=12 gegl:dropshadow x=0.00  y=0 radius=0.00 grow-shape=circle grow-radius=1 opacity=2 color=#ffffff gegl:dropshadow x=0.00  y=0 radius=0.00 grow-shape=circle grow-radius=6 opacity=1 color=#ffffff gegl:dropshadow x=0.00  y=0.00 radius=0.00 grow-shape=circle grow-radius=6 opacity=1 color=#000000 gegl:dropshadow opacity=0.4 radius=0.1 x=-1.8 y=2.8 gegl:long-shadow style=finite angle=152.94 length=11 midpoint=100 midpoint-rel=0.5 color=#000000 composition=shadow-plus-image   "\
 
 
 
 
 #define g12 \
-" transform transform=matrix(1.0156650757686598,0.075701741929592628,0.000365746118200971,0.013317261513591921,1.2296272065975005,9.0806881192612718e-05,0,0,1)   sampler=nohalo sampler=nohalo gegl:color-overlay value=#dbdbdb svg:src-atop aux=[gegl:layer noise-solid levels in-low=-0.4       gimp:layer-mode layer-mode=grain-merge composite-mode=clip-to-backdrop aux=[ color value=#07ff00  ] ]  crop gaussian-blur emboss  type=bumpmap azimuth=30 elevation=45 depth=12 gegl:dropshadow x=0.00  y=0 radius=0.00 grow-shape=circle grow-radius=1 opacity=2 color=#ffffff gegl:dropshadow x=0.00  y=0 radius=0.00 grow-shape=circle grow-radius=6 opacity=1 color=#ffffff gegl:dropshadow x=0.00  y=0.00 radius=0.00 grow-shape=circle grow-radius=6 opacity=1 color=#000000 gegl:dropshadow opacity=0.4 radius=0.1 x=-1.8 y=2.8 gegl:long-shadow style=finite angle=172.94 length=11 midpoint=100 midpoint-rel=0.5 color=#000000 composition=shadow-plus-image    "\
+" transform transform=matrix(1.0156650757686598,0.075701741929592628,0.000365746118200971,0.013317261513591921,1.2296272065975005,9.0806881192612718e-05,0,0,1)   sampler=nohalo sampler=nohalo gegl:color-overlay value=#dbdbdb svg:src-atop aux=[gegl:layer noise-solid levels in-low=-0.4       gimp:layer-mode layer-mode=grain-merge composite-mode=clip-to-backdrop aux=[ color value=#07ff00  ] ]  crop gaussian-blur abyss-policy=none clip-extent=false emboss  type=bumpmap azimuth=30 elevation=45 depth=12 gegl:dropshadow x=0.00  y=0 radius=0.00 grow-shape=circle grow-radius=1 opacity=2 color=#ffffff gegl:dropshadow x=0.00  y=0 radius=0.00 grow-shape=circle grow-radius=6 opacity=1 color=#ffffff gegl:dropshadow x=0.00  y=0.00 radius=0.00 grow-shape=circle grow-radius=6 opacity=1 color=#000000 gegl:dropshadow opacity=0.4 radius=0.1 x=-1.8 y=2.8 gegl:long-shadow style=finite angle=172.94 length=11 midpoint=100 midpoint-rel=0.5 color=#000000 composition=shadow-plus-image    "\
 
 
 
 
 #define g13 \
-" id=containall src aux=[ ref=containall color-overlay value=#00dfff cubism tile-size=7 seed=334 median-blur radius=11 id=1 gimp:layer-mode layer-mode=overlay opacity=0.45 aux=[  ref=1 emboss depth=20 denoise-dct sigma=35 ] lb:threshold-alpha id=2 over aux=[ ref=2 lb:glassovertext azimuth=33 depth=19   ] lb:edgesmooth value=2 id=3 gimp:layer-mode layer-mode=replace opacity=0.09 aux=[ ref=3 color-to-alpha color=#0ee2fd ] ] crop denoise-dct sigma=4 median-blur radius=0  "\
+" id=containall src aux=[ ref=containall color-overlay value=#00dfff cubism tile-size=7 seed=334 median-blur abyss-policy=none radius=11 id=1 gimp:layer-mode layer-mode=overlay opacity=0.45 aux=[  ref=1 emboss depth=20 denoise-dct sigma=35 ] lb:threshold-alpha id=2 over aux=[ ref=2 lb:glassovertext azimuth=33 depth=19   ] lb:edgesmooth value=2 id=3 gimp:layer-mode layer-mode=replace opacity=0.09 aux=[ ref=3 color-to-alpha color=#0ee2fd ] ] crop denoise-dct sigma=4 median-blur abyss-policy=none radius=0  "\
 
 
 #define g14 \
-"  id=containall src aux=[ ref=containall color-overlay value=#00dfff cubism tile-size=15 seed=33 median-blur radius=11 id=1 gimp:layer-mode layer-mode=overlay opacity=0.45 aux=[  ref=1 emboss depth=20 denoise-dct sigma=35 ] lb:threshold-alpha id=2 over aux=[ ref=2 lb:glassovertext azimuth=33 depth=19   ] lb:edgesmooth value=2 id=3 gimp:layer-mode layer-mode=replace opacity=0.09 aux=[ ref=3 color-to-alpha color=#0ee2fd ] ] crop denoise-dct sigma=4 median-blur radius=0    "\
+"  id=containall src aux=[ ref=containall color-overlay value=#00dfff cubism tile-size=15 seed=33 median-blur abyss-policy=none radius=11 id=1 gimp:layer-mode layer-mode=overlay opacity=0.45 aux=[  ref=1 emboss depth=20 denoise-dct sigma=35 ] lb:threshold-alpha id=2 over aux=[ ref=2 lb:glassovertext azimuth=33 depth=19   ] lb:edgesmooth value=2 id=3 gimp:layer-mode layer-mode=replace opacity=0.09 aux=[ ref=3 color-to-alpha color=#0ee2fd ] ] crop denoise-dct sigma=4 median-blur abyss-policy=none radius=0    "\
 
 
 
 
 #define g15 \
-" id=containall src aux=[ ref=containall color-overlay value=#00dfff cubism tile-size=10 seed=383 median-blur radius=11 id=1 gimp:layer-mode layer-mode=hardlight opacity=0.25 aux=[  ref=1 emboss depth=20 denoise-dct sigma=35 ] lb:threshold-alpha id=2 over aux=[ ref=2 lb:glassovertext azimuth=33 depth=19   ] lb:edgesmooth value=2 id=3 gimp:layer-mode layer-mode=replace opacity=0.09 aux=[ ref=3 color-to-alpha color=#0ee2fd ] ] crop denoise-dct sigma=4 median-blur radius=0-dct sigma=4 median-blur radius=0    "\
+" id=containall src aux=[ ref=containall color-overlay value=#00dfff cubism tile-size=10 seed=383 median-blur abyss-policy=none radius=11 id=1 gimp:layer-mode layer-mode=hardlight opacity=0.25 aux=[  ref=1 emboss depth=20 denoise-dct sigma=35 ] lb:threshold-alpha id=2 over aux=[ ref=2 lb:glassovertext azimuth=33 depth=19   ] lb:edgesmooth value=2 id=3 gimp:layer-mode layer-mode=replace opacity=0.09 aux=[ ref=3 color-to-alpha color=#0ee2fd ] ] crop denoise-dct sigma=4 median-blur abyss-policy=none radius=0-dct sigma=4 median-blur abyss-policy=none radius=0    "\
 
 
 #define g16 \
-" id=containall src aux=[ ref=containall color-overlay value=#00dfff cubism tile-size=12 seed=683 median-blur radius=11 id=1 gimp:layer-mode layer-mode=hardlight opacity=0.25 aux=[  ref=1 emboss depth=20 denoise-dct sigma=35 ] lb:threshold-alpha id=2 over aux=[ ref=2 lb:glassovertext azimuth=33 depth=19   ] lb:edgesmooth value=2 id=3 gimp:layer-mode layer-mode=replace opacity=0.09 aux=[ ref=3 color-to-alpha color=#0ee2fd ] ] crop denoise-dct sigma=4 median-blur radius=0-dct sigma=4 median-blur radius=0  "\
+" id=containall src aux=[ ref=containall color-overlay value=#00dfff cubism tile-size=12 seed=683 median-blur abyss-policy=none radius=11 id=1 gimp:layer-mode layer-mode=hardlight opacity=0.25 aux=[  ref=1 emboss depth=20 denoise-dct sigma=35 ] lb:threshold-alpha id=2 over aux=[ ref=2 lb:glassovertext azimuth=33 depth=19   ] lb:edgesmooth value=2 id=3 gimp:layer-mode layer-mode=replace opacity=0.09 aux=[ ref=3 color-to-alpha color=#0ee2fd ] ] crop denoise-dct sigma=4 median-blur abyss-policy=none radius=0-dct sigma=4 median-blur abyss-policy=none radius=0  "\
 
 
 
 #define g17 \
-"  id=containall src aux=[ ref=containall color-overlay value=#00dfff cubism tile-size=7 seed=353 median-blur radius=5 id=1 gimp:layer-mode layer-mode=hardlight opacity=0.25 aux=[  ref=1 emboss depth=20 denoise-dct sigma=35 ] lb:threshold-alpha id=2 over aux=[ ref=2 lb:glassovertext azimuth=33 depth=19   ] lb:edgesmooth value=2 id=3 gimp:layer-mode layer-mode=replace opacity=0.09 aux=[ ref=3 color-to-alpha color=#0ee2fd ] ] crop denoise-dct sigma=4 median-blur radius=0   "\
+"  id=containall src aux=[ ref=containall color-overlay value=#00dfff cubism tile-size=7 seed=353 median-blur abyss-policy=none radius=5 id=1 gimp:layer-mode layer-mode=hardlight opacity=0.25 aux=[  ref=1 emboss depth=20 denoise-dct sigma=35 ] lb:threshold-alpha id=2 over aux=[ ref=2 lb:glassovertext azimuth=33 depth=19   ] lb:edgesmooth value=2 id=3 gimp:layer-mode layer-mode=replace opacity=0.09 aux=[ ref=3 color-to-alpha color=#0ee2fd ] ] crop denoise-dct sigma=4 median-blur abyss-policy=none radius=0   "\
 
 
 
 #define g18 \
-"  color-overlay value=#ffffff cubism tile-size=8 seed=33 gaussian-blur std-dev-x=3.5 std-dev-y-=3.5 dropshadow x=0 y=0 opacity=0.6  "\
+"  color-overlay value=#ffffff cubism tile-size=8 seed=33 gaussian-blur abyss-policy=none clip-extent=false std-dev-x=3.5 std-dev-y-=3.5 dropshadow x=0 y=0 opacity=0.6  "\
 
 #define g19 \
 " nop  "\
@@ -392,7 +392,7 @@ static void attach (GeglOperation *operation)
                                   NULL);
 
   state->sizecontrol    = gegl_node_new_child (gegl,
-                                  "operation", "gegl:median-blur", "alpha-percentile", 100.0,
+                                  "operation", "gegl:median-blur",  "abyss-policy",     GEGL_ABYSS_NONE, "alpha-percentile", 100.0,
                                   NULL);
 
 
