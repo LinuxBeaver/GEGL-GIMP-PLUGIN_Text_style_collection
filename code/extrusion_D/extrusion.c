@@ -166,7 +166,7 @@ static void attach (GeglOperation *operation)
                                   NULL);
 
   median = gegl_node_new_child (gegl,
-                                  "operation", "gegl:median-blur", "radius", 1.0, "percentile", 50.0,
+                                  "operation", "gegl:median-blur", "radius", 1.0, "percentile", 50.0, "abyss-policy",     GEGL_ABYSS_NONE,
                                   NULL);
 
   chroma = gegl_node_new_child (gegl,
