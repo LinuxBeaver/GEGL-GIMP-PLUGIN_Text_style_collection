@@ -39,7 +39,7 @@ hue-chroma lightness=9
 
  /*This is a long GEGL graph that makes a gold effect on top of a specialized custom bevel like command. This depends on my plugins Inner Glow, Advance Emboss, Threshold Alpha 2, and Edge Extract.*/
 #define GEGLGRAPHSTRING \
-" id=ig alien-map cpn-1-frequency=5 cpn-2-frequency=3 cpn-2-frequency=13 gimp:desaturate mode=average hue-chroma lightness=-13 opacity value=6.0 id=color gimp:layer-mode layer-mode=hsl-color composite-mode=auto opacity=0.021  composite-mode=auto  aux=[ ref=color color-overlay value=#ffec2b box-blur radius=30 ] noise-reduction iterations=3 gimp:layer-mode layer-mode=grain-merge opacity=0.54 composite-mode=auto aux=[ ref=ig lb:innerglow radius=14 value2=#ffeb2b gaussian-blur std-dev-x=5 std-dev-y=5 ] levels in-low=0.032 id=shadow gimp:layer-mode layer-mode=behind opacity=0.033 aux=[ ref=shadow color-overlay value=#000000 gaussian-blur std-dev-x=12 std-dev-y=12  translate x=6 y=15  ] saturation scale=1.00 lb:threshold-alpha alphadegree=0.7 median-blur radius=0 id=ee gimp:layer-mode layer-mode=subtract opacity=0.07 aux=[ ref=ee lb:edge-extract ] id=et gimp:layer-mode layer-mode=subtract opacity=0.015 aux=[ ref=et  lb:embosstexture ] median-blur radius=0 id=sg gimp:layer-mode layer-mode=normal opacity=0.25 aux=[ ref=sg softglow brightness=0.45 ] bloom strength=20 id=dog gimp:layer-mode  layer-mode=grain-merge opacity=0.19 aux=[ ref=dog difference-of-gaussians ] "\
+" id=ig alien-map cpn-1-frequency=5 cpn-2-frequency=3 cpn-2-frequency=13 gimp:desaturate mode=average hue-chroma lightness=-13 opacity value=6.0 id=color gimp:layer-mode layer-mode=hsl-color composite-mode=auto opacity=0.021  composite-mode=auto  aux=[ ref=color color-overlay value=#ffec2b box-blur radius=30 ] noise-reduction iterations=3 gimp:layer-mode layer-mode=grain-merge opacity=0.54 composite-mode=auto aux=[ ref=ig lb:innerglow radius=14 value2=#ffeb2b gaussian-blur abyss-policy=none std-dev-x=5 std-dev-y=5  clip-extent=false ] levels in-low=0.032 id=shadow gimp:layer-mode layer-mode=behind opacity=0.033 aux=[ ref=shadow color-overlay value=#000000 gaussian-blur abyss-policy=none  clip-extent=false std-dev-x=12 std-dev-y=12  translate x=6 y=15  ] saturation scale=1.00 lb:threshold-alpha alphadegree=0.7 median-blur abyss-policy=none radius=0 id=ee gimp:layer-mode layer-mode=subtract opacity=0.07 aux=[ ref=ee lb:edge-extract ] id=et gimp:layer-mode layer-mode=subtract opacity=0.015 aux=[ ref=et  lb:embosstexture ] median-blur radius=0 abyss-policy=none id=sg gimp:layer-mode layer-mode=normal opacity=0.25 aux=[ ref=sg softglow brightness=0.45 ] bloom strength=20 id=dog gimp:layer-mode  layer-mode=grain-merge opacity=0.19 aux=[ ref=dog difference-of-gaussians ] "\
 
 enum_start (meme_gold_text)
   enum_value (GEGL_BLEND_MODE_TYPE_COLORDODGE,      "colordodge",
@@ -186,11 +186,11 @@ GeglProperties *o = GEGL_PROPERTIES (operation);
 
 
   median    = gegl_node_new_child (gegl,
-                                  "operation", "gegl:median-blur", "alpha-percentile", 0.0,
+                                  "operation", "gegl:median-blur", "alpha-percentile", 0.0, "abyss-policy",     GEGL_ABYSS_NONE,
                                   NULL);
 
   fix    = gegl_node_new_child (gegl,
-                                  "operation", "gegl:median-blur", "radius", 0,
+                                  "operation", "gegl:median-blur", "radius", 0, "abyss-policy",     GEGL_ABYSS_NONE,
                                   NULL); /* Median Blur at zero is used to fix all sorts of bugs in GEGL Graph. I don't know why
                                             but it has a interesting property that solves several known bugs in GEGL. It is 
                                             at 0 so it makes no changes to the image. In this case it is solving a unique
@@ -215,7 +215,7 @@ GeglProperties *o = GEGL_PROPERTIES (operation);
                                   NULL);
 
   gaussian    = gegl_node_new_child (gegl,
-                                  "operation", "gegl:gaussian-blur",
+                                  "operation", "gegl:gaussian-blur", "clip-extent", FALSE, "abyss-policy",     0,
    "filter", 1,
                                   NULL);
 
