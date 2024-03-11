@@ -17,7 +17,7 @@
  * Glass over Text 2023 Beaver
  */
 
-/*GEGL Glass Over Text was once just a stand alone plugin, but now it is also part of Graphical Effects. The stand alone version still exist and does more then the Graphical Effects implementation of it. */
+/*GEGL Glass Over Text was once just a stand alone plugin, but now it is also part of GEGL Effects. The stand alone version still exist and does more then the GEGL Effects implementation of it. */
 
 
 /*
@@ -65,8 +65,8 @@ property_enum (glassover, _("Blend Mode of Glass on Text"),
     ui_meta     ("role", "output-extent")
 
 
-property_boolean (enableglasstext, _("Enable Glass on Text for Graphical Effects"), TRUE)
-  description    (_("This option is only for Graphical Effects"))
+property_boolean (enableglasstext, _("Enable Glass on Text for GEGL Effects"), TRUE)
+  description    (_("This option is only for GEGL Effects"))
     ui_meta     ("role", "output-extent")
 /*     ui_meta     ("role", "output-extent") hides this from showing up in the GUI */
 
@@ -75,7 +75,7 @@ property_boolean (enableglasstext, _("Enable Glass on Text for Graphical Effects
 
 
 #define TUTORIALGLASSTEXT \
-" id=1 gimp:layer-mode layer-mode=erase composite-mode=auto aux=[ ref=1 dst-over aux=[ color value=#000000  ]  crop  color-to-alpha opacity-threshold=0.14 color-overlay value=#000000 ]  ]  "\
+" id=1 gimp:layer-mode layer-mode=erase composite-mode=auto aux=[ ref=1 dst-over aux=[ color value=#000000  ]   color-to-alpha opacity-threshold=0.14 color-overlay value=#000000 ]  ]  "\
 
 property_double (azimuth, _("Azimuth"), 30.0)
     description (_("Light angle (degrees)"))
@@ -203,11 +203,11 @@ GeglProperties *o = GEGL_PROPERTIES (operation);
                                   NULL);
 
   retract    = gegl_node_new_child (gegl,
-                                  "operation", "gegl:gaussian-blur",
+                                  "operation", "gegl:gaussian-blur", "clip-extent", FALSE,  "abyss-policy", 0,
                                   NULL);
 
   gaussian    = gegl_node_new_child (gegl,
-                                  "operation", "gegl:gaussian-blur",
+                                  "operation", "gegl:gaussian-blur", "clip-extent", FALSE,  "abyss-policy", 0,
                                   NULL);
 
 
@@ -221,7 +221,7 @@ GeglProperties *o = GEGL_PROPERTIES (operation);
                                   NULL);
 
 
-  /* Glass Over Text blend modes for Graphical Effects */
+  /* Glass Over Text blend modes for GEGL Effects */
 
   glassover = gegl_node_new_child (gegl,
                                   "operation", "gegl:src-in",
