@@ -157,7 +157,7 @@ static void attach (GeglOperation *operation)
 
  
    median   = gegl_node_new_child (gegl,
-                                  "operation", "gegl:median-blur", "alpha-percentile", 0.0,
+                                  "operation", "gegl:median-blur", "alpha-percentile", 0.0,  "abyss-policy",     GEGL_ABYSS_NONE,
                                   NULL);
 
  ssg    = gegl_node_new_child (gegl,
@@ -166,11 +166,11 @@ static void attach (GeglOperation *operation)
             
 
  blur    = gegl_node_new_child (gegl,
-                                  "operation", "gegl:gaussian-blur", "std-dev-x", 0.5, "std-dev-y", 0.5,
+                                  "operation", "gegl:gaussian-blur", "std-dev-x", 0.5, "std-dev-y", 0.5, "clip-extent", FALSE,   "abyss-policy", 0,                    
                                   NULL);
 
  blur2    = gegl_node_new_child (gegl,
-                                  "operation", "gegl:gaussian-blur",
+                                  "operation", "gegl:gaussian-blur", "clip-extent", FALSE,   "abyss-policy", 0,                    
                                   NULL);
 
   id1    = gegl_node_new_child (gegl,
