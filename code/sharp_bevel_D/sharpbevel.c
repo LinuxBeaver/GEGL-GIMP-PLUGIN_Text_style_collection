@@ -108,8 +108,8 @@ property_int (depth, _("Depth and or detail"), 24)
     value_range (8, 100)
 
 
-property_double (smooth, _("Smooth Bevel"), 9.0)
-    description (_("Smooth the Bevel with Denoise DCT to make it less rough looking. If this is on very low values  the bevel will look very rough, but on very high values it will make the filter slow."))
+property_double (smooth, _("Smooth Bevel"), 9)
+    description (_("Smooth the Bevel with mean curvature to make it less rough looking. If this is on very low values  the bevel will look very rough, but on very high values it will make the filter slow."))
     value_range (1, 20)
 
 property_double (sharpen, _("Sharpen Radius"), 0.0)
@@ -307,15 +307,15 @@ GeglProperties *o = GEGL_PROPERTIES (operation);
 
 
   fix    = gegl_node_new_child (gegl,
-                                  "operation", "gegl:median-blur", "radius", 0,
+                                  "operation", "gegl:median-blur", "radius", 0,   "abyss-policy",     GEGL_ABYSS_NONE,
                                   NULL);
 
   fix2    = gegl_node_new_child (gegl,
-                                  "operation", "gegl:median-blur", "radius", 0,
+                                  "operation", "gegl:median-blur", "radius", 0,   "abyss-policy",     GEGL_ABYSS_NONE,
                                   NULL);
 
   fix3    = gegl_node_new_child (gegl,
-                                  "operation", "gegl:median-blur",
+                                  "operation", "gegl:median-blur",   "abyss-policy",     GEGL_ABYSS_NONE,
                                   NULL);
 /* Fix 3 is a special case that updates with defined median. Its radius and neigborhood update together with "median"*/
 
@@ -333,7 +333,7 @@ drop shadow is applied in a gegl graph below them. median 0 solves this.*/
 
 
   median    = gegl_node_new_child (gegl,
-                                  "operation", "gegl:median-blur",
+                                  "operation", "gegl:median-blur",   "abyss-policy",     GEGL_ABYSS_NONE,
                                   NULL);
 /* This defined median updates with fix 3. Its radius and neigborhood update together with "fix3"*/
 
@@ -392,9 +392,9 @@ drop shadow is applied in a gegl graph below them. median 0 solves this.*/
                                   NULL);
 
   smooth    = gegl_node_new_child (gegl,
-                                  "operation", "gegl:denoise-dct",
+                                  "operation", "gegl:mean-curvature-blur",
                                   NULL);
-/* This is a new operation that will only work in Gimp 2.10.32 and up */
+
 
   col   = gegl_node_new_child (gegl,
                                   "operation", "gegl:color-overlay",
@@ -503,7 +503,7 @@ multiply2 = gegl_node_new_child (gegl,
   gegl_operation_meta_redirect (operation, "shape", median, "neighborhood");
   gegl_operation_meta_redirect (operation, "shape", fix3, "neighborhood");
 /* This is a special instruction two median blur radius's and their neighborhood base shapes udpate together. They fix a bug relating to anti erasing and a unwanted outline. */
-  gegl_operation_meta_redirect (operation, "smooth", smooth, "sigma");
+  gegl_operation_meta_redirect (operation, "smooth", smooth, "iterations");
   gegl_operation_meta_redirect (operation, "azimuth", emboss, "azimuth");
   gegl_operation_meta_redirect (operation, "elevation", emboss, "elevation");
   gegl_operation_meta_redirect (operation, "depth", emboss, "depth");
@@ -576,7 +576,7 @@ GeglOperationMetaClass *operation_meta_class = GEGL_OPERATION_META_CLASS (klass)
     "title",       _("Sharp Bevel"),
     "categories",  "Artistic",
     "reference-hash", "v76ao6gk4321vyeef625362f2ag",
-    "description", _("A heavy modification of my existing custom bevel plugin. Create a bevel allowing choice of bevel size, and internal blend modes.  Different blend modes do different things regarding detail, depth or presence of a shine effect."
+    "description", _("A heavy modification of my existing custom bevel plugin. GEGL makes a bevel allowing choice of bevel size, and internal blend modes.  Different blend modes do different things regarding detail, depth or presence of a shine effect."
                      ""),
     "gimp:menu-path", "<Image>/Filters/Text Styling",
     "gimp:menu-label", _("Sharp Bevel..."),
