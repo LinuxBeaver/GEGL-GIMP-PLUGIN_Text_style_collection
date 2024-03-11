@@ -89,7 +89,7 @@ static void attach (GeglOperation *operation)
                                   NULL);
 
   median = gegl_node_new_child (gegl,
-                                  "operation", "gegl:median-blur", "radius", 0,
+                                  "operation", "gegl:median-blur", "radius", 0,  "abyss-policy",     GEGL_ABYSS_NONE,    
                                   NULL);
 #define whitecolor \
 " color value=white  "\
