@@ -34,7 +34,7 @@ id=2  gegl:dst-atop aux=[  ref=2 median-blur radius=2 alpha-percentile=-1 gaussi
 #ifdef GEGL_PROPERTIES
 
 #define TUTORIAL \
-"  id=1  gegl:over aux=[ ref=1  xor aux=[   median-blur radius=2.4 alpha-percentile=2    ]  "\
+"  id=1  gegl:over aux=[ ref=1  xor aux=[   median-blur radius=2.4 alpha-percentile=2 abyss-policy=none    ]  "\
 
 
 /*It is mid 2023 and I still don't know how to hide these from the GEGL Graph. Everything else is easy to hide though*/
@@ -80,15 +80,15 @@ static void attach (GeglOperation *operation)
 
 
   median    = gegl_node_new_child (gegl,
-                                  "operation", "gegl:median-blur", "radius", 2, "alpha-percentile", 2.0,
+                                  "operation", "gegl:median-blur", "radius", 2, "alpha-percentile", 2.0, "abyss-policy",     GEGL_ABYSS_NONE,
                                   NULL);
 
   median2    = gegl_node_new_child (gegl,
-                                  "operation", "gegl:median-blur", "radius", 2, "percentile", 1.0, 
+                                  "operation", "gegl:median-blur", "radius", 2, "percentile", 1.0, "abyss-policy",     GEGL_ABYSS_NONE,
                                   NULL);
 
   fixgraph    = gegl_node_new_child (gegl,
-                                  "operation", "gegl:median-blur", "radius", 0,
+                                  "operation", "gegl:median-blur", "radius", 0, "abyss-policy",     GEGL_ABYSS_NONE,
                                   NULL);
 
 /*  
@@ -99,7 +99,7 @@ in a damaged way because there global opacity is way to high. Median blur radius
 
 
   gaussian    = gegl_node_new_child (gegl,
-                                  "operation", "gegl:gaussian-blur",
+                                  "operation", "gegl:gaussian-blur", "clip-extent", FALSE,
                                   NULL);
 
   opacity    = gegl_node_new_child (gegl,
