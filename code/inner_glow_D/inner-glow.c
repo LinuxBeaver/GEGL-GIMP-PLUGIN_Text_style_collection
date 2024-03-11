@@ -17,7 +17,7 @@
  * 2022 Beaver (GEGL inner glow)
  */
 
-/*GEGL Inner Glow is a stand alone plugin but it is also part of Graphical Effects. The stand alone version does more then the Graphical Effects implementation of it. */
+/*GEGL Inner Glow is a stand alone plugin but it is also part of GEGL Effects. The stand alone version does more then the GEGL Effects implementation of it. */
 
 /*
 Recreation of Inner Glow's GEGL Graph. May not be 100% accurate but you can test it without installing this way.
@@ -194,13 +194,13 @@ At Nov 20 2023 I learned that two nodes can call the same graph, also this graph
                                   NULL);
 
   state->crop    = gegl_node_new_child (gegl,
-                                  "operation", "gegl:crop",
+                                  "operation", "gegl:nop",
                                   NULL);
 /*This node was added November 20 2023 to fix another border bug that happens with layer to image size, where inner glow goes OUTSIDE the selection some how. This is a bug with Gimp internally
 but somehow crop fixes it.*/
 
   state->blurimage    = gegl_node_new_child (gegl,
-                                  "operation", "gegl:gaussian-blur",
+                                  "operation", "gegl:gaussian-blur", "clip-extent", FALSE,    "abyss-policy", 0,                                      
                                   NULL);
 
 
@@ -218,7 +218,7 @@ but somehow crop fixes it.*/
                                   NULL);
 
 
-  state->median2     = gegl_node_new_child (gegl, "operation", "gegl:median-blur",
+  state->median2     = gegl_node_new_child (gegl, "operation", "gegl:median-blur", "abyss-policy",     GEGL_ABYSS_NONE,
                                          "radius",       1,
                                          NULL);
 
@@ -280,7 +280,7 @@ GeglOperationMetaClass *operation_meta_class = GEGL_OPERATION_META_CLASS (klass)
     "name",        "lb:innerglow",
     "title",       _("Inner Glow (to blend)"),
     "reference-hash", "g3do6aaoo1100g0fjf25sb2ac",
-    "description", _("Do an inner glow effect. For this filter to work you need to use the 'Normal' or other blending options. Or a duplicate layer on top.  "
+    "description", _("GEGL does an inner glow effect. For this filter to work you need to use the 'Normal' or other blending options. Or a duplicate layer on top.  "
                      ""),
     "gimp:menu-path", "<Image>/Filters/Text Styling",
     "gimp:menu-label", _("Inner Glow (to blend)..."),
