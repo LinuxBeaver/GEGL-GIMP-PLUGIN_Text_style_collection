@@ -123,16 +123,18 @@ Check which numbers correspond to what g graph
 "  color-overlay value=#ffffff cubism tile-size=8 seed=33 gaussian-blur abyss-policy=none clip-extent=false std-dev-x=3.5 std-dev-y-=3.5 dropshadow x=0 y=0 opacity=0.6  "\
 
 #define g19 \
-" nop  "\
+" color-overlay value=white gaussian-blur std-dev-x=12 std-dev-y=12 id=1 hard-light  aux=[ ref=1 emboss depth=30 elevation=20 ] cubism tile-size=5 opacity value=2.6 lb:threshold-alpha median-blur radius=0 cubism tile-size=5 id=2 over aux=[ ref=2] shift shift=2 shift shift=2 direction=vertical gimp:threshold-alpha id=3 multiply aux=[ ref=3 noise-rgb red=0 green=0 blue=0 opacity value=3  ] id=replace gimp:layer-mode layer-mode=replace opacity=0.80 aux=[ ref=replace lb:edgesmooth gaus=2 value=1 alpha-percentile2=90 ] gaussian-blur std-dev-x=0.5 std-dev-y=0.50 median-blur radius=0 id=6 gimp:layer-mode layer-mode=difference blend-space=rgb-perceptual opacity=0.30 composite-mode=auto aux=[ ref=6 image-gradient output-mode=magnitude  ] ripple amplitude=1.19 period=19 phi=-02 angle=0 sampler-type=cubic wave-type=sine abyss-policy=clamp tileable=yes id=7 over aux=[ ref=7 softglow opacity value=0.2  ] id=8 gimp:layer-mode layer-mode=behind opacity=0.14 aux=[ ref=8 lb:skeleton xstretch=0.68 ystretch=0.6 internalcubism=1.6 seed=1992011 color=#ffffff ] levels out-low=0.011 "\
 
 #define g20 \
-" nop "\
+" color-overlay value=white gaussian-blur std-dev-x=12 std-dev-y=12 id=1 screen srgb=true  aux=[ ref=1 emboss depth=30 elevation=20 ] cubism tile-size=5 opacity value=2.6 lb:threshold-alpha median-blur radius=0 cubism tile-size=5 id=2 over aux=[ ref=2] shift shift=2 shift shift=2 direction=vertical gimp:threshold-alpha id=3 multiply aux=[ ref=3 noise-rgb red=0 green=0 blue=0 opacity value=3  ] id=replace gimp:layer-mode layer-mode=replace opacity=0.80 aux=[ ref=replace lb:edgesmooth gaus=2 value=1 alpha-percentile2=90 ] gaussian-blur std-dev-x=0.5 std-dev-y=0.50 median-blur radius=0 id=6 gimp:layer-mode layer-mode=difference blend-space=rgb-perceptual opacity=0.30 composite-mode=auto aux=[ ref=6 image-gradient output-mode=magnitude  ] ripple amplitude=1.19 period=19 phi=-02 angle=0 sampler-type=cubic wave-type=sine abyss-policy=clamp tileable=yes id=7 over aux=[ ref=7 softglow opacity value=0.2  ] id=8 gimp:layer-mode layer-mode=behind opacity=0.14 aux=[ ref=8 lb:skeleton xstretch=0.68 ystretch=0.6 internalcubism=1.6 seed=1992011 color=#ffffff ] levels out-low=0.011 "\
 
 #define g21 \
-" nop   "\
+" color-overlay value=white gaussian-blur std-dev-x=12 std-dev-y=12 id=1 gimp:layer-mode layer-mode=grain-merge aux=[ ref=1 emboss depth=30 elevation=20 ] cubism tile-size=5 opacity value=2.6 lb:threshold-alpha median-blur radius=0 cubism tile-size=5 id=2 over aux=[ ref=2] shift shift=2 shift shift=2 direction=vertical gimp:threshold-alpha id=3 multiply aux=[ ref=3 noise-rgb red=0 green=0 blue=0 opacity value=3  ] id=replace gimp:layer-mode layer-mode=replace opacity=0.80 aux=[ ref=replace lb:edgesmooth gaus=2 value=1 alpha-percentile2=90 ] gaussian-blur std-dev-x=0.5 std-dev-y=0.50 median-blur radius=0 id=6 gimp:layer-mode layer-mode=difference blend-space=rgb-perceptual opacity=0.30 composite-mode=auto aux=[ ref=6 image-gradient output-mode=magnitude  ] ripple amplitude=1.19 period=19 phi=-02 angle=0 sampler-type=cubic wave-type=sine abyss-policy=clamp tileable=yes id=7 over aux=[ ref=7 softglow opacity value=0.2  ] id=8 gimp:layer-mode layer-mode=behind opacity=0.14 aux=[ ref=8 lb:skeleton xstretch=0.68 ystretch=0.6 internalcubism=1.6 seed=1992011 color=#ffffff ] levels out-low=0.011    "\
 
 #define g22 \
-" nop  "\
+" color-overlay value=#c87d00 cubism tile-size=3 gaussian-blur std-dev-x=4 std-dev-y=4 cubism tile-size=7 noise-spread amount-x=24 amount-y=24 gaussian-blur lb:custom-bevel blendmode=Plus saturation scale=0.9 id=2 gimp:layer-mode layer-mode=grain-merge opacity=0.33 aux=[ ref=2 lb:innerglow value2=#ffff00 radius=11 grow-radius=5 ] id=1 gimp:layer-mode layer-mode=grain-merge opacity=0.53 aux=[ ref=1 lb:innerglow value2=#ff8c00 radius=11 grow-radius=5 ] unsharp-mask scale=2.6 lb:threshold-alpha levels in-low=0.1 in-high=0.7 unsharp-mask scale=0.3 id=3 gimp:layer-mode layer-mode=grain-merge aux=[ ref=3 color-overlay value=#be7f29 opacity value=0.3 ] id=4 overlay srgb=true aux=[ ref=4 emboss depth=2 opacity value=0.2 ] id=5 gimp:layer-mode layer-mode=subtract opacity=0.1 aux=[ ref=5 edge algorithm=sobel amount=1] unsharp-mask scale=0.2 lb:threshold-alpha alphadegree=9.5 lb:threshold-alpha alphadegree=9.5 lb:edgesmooth id=6 gimp:layer-mode layer-mode=multiply blend-space=rgb-perceptual opacity=0.50 aux=[ ref=6 ]  "\
+
+
 
 
 #define g23 \
@@ -211,13 +213,13 @@ enum_start (niche_textrandom)
   enum_value (crazy18,      "crazy18",
               N_("Cloud Text"))
   enum_value (crazy19,      "crazy19",
-              N_("NO CONTENT YET"))
+              N_("Fuzz Text (Hard Light)"))
   enum_value (crazy20,      "crazy20",
-              N_("NO CONTENT YET"))
+              N_("Fuzz Text (Screen)"))
   enum_value (crazy21,      "crazy21",
-              N_("NO CONTENT YET"))
+              N_("Fuzz Text (Grain Merge)"))
   enum_value (crazy22,      "crazy22",
-              N_("NO CONTENT YET"))
+              N_("Lava type (jan 2024)"))
   enum_value (crazy23,      "crazy23",
               N_("NO CONTENT YET"))
   enum_value (crazy24,      "crazy24",
@@ -403,7 +405,7 @@ static void attach (GeglOperation *operation)
   gegl_operation_meta_redirect (operation, "saturation",  state->saturation, "scale");
   gegl_operation_meta_redirect (operation, "lightness",  state->light, "lightness");
 
-} 
+}
 
 static void update_graph (GeglOperation *operation)
 {
