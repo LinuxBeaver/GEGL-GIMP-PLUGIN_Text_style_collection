@@ -69,7 +69,7 @@ Check which numbers correspond to what g graph
 
 
 #define g11 \
-" color-overlay value=#3b3b3b gaussian-blur  abyss-policy=none  clip-extent=false std-dev-x=2 std-dev-y=2 id=1  overlay aux=[ ref=1 emboss  depth=59 elevation=30 opacity value=0.3   ] lb:threshold-alpha id=x gimp:layer-mode layer-mode=softlight composite-mode=auto aux=[ ref=x cell-noise seed=4345 scale=16 color-to-alpha color=black opacity value=1.2  ] id=y gimp:layer-mode layer-mode=softlight composite-mode=auto aux=[ ref=y cell-noise seed=12345 shape=01  scale=0.7 color-to-alpha color=white opacity value=0.75  gimp:threshold-alpha noise-spread amount-x=30 amount-y=30  box-blur radius=1 opacity value=1.7   ] id=x2 gimp:layer-mode layer-mode=softlight composite-mode=auto aux=[ ref=x2 chrome  ] multiply value=3 bloom radius=0 strength=65 id=x3 gimp:layer-mode layer-mode=exclusion composite-mode=auto opacity=0.05  aux=[ ref=x3 emboss depth=30  elevation=30  ] mean-curvature-blur iterations=2 id=x4 gimp:layer-mode layer-mode=softlight composite-mode=auto aux=[ ref=x4 sinus x-scale=208.02 y-scale=208.02 complexity=1.012 seed=2050109389 tiling=yes perturbation=yes color1=#8c8c8c color2=#000000 blend-mode=bilinear blend-power=1.905 opacity value=1.2 ]   "\
+" color-overlay value=#3b3b3b gaussian-blur  abyss-policy=none  clip-extent=false std-dev-x=2 std-dev-y=2 id=1  overlay aux=[ ref=1 emboss  depth=59 elevation=30 opacity value=0.3   ] lb:threshold-alpha id=x gimp:layer-mode layer-mode=softlight composite-mode=auto aux=[ ref=x cell-noise seed=4345 scale=16 color-to-alpha color=black opacity value=1.2  ] id=y gimp:layer-mode layer-mode=softlight composite-mode=auto aux=[ ref=y cell-noise seed=12345 shape=01  scale=0.7 color-to-alpha color=white opacity value=0.75  gimp:threshold-alpha noise-spread amount-x=30 amount-y=30  box-blur radius=1 opacity value=1.7   ] id=x2 gimp:layer-mode layer-mode=softlight composite-mode=auto aux=[ ref=x2 lb:chrome  ] multiply value=3 bloom radius=0 strength=65 id=x3 gimp:layer-mode layer-mode=exclusion composite-mode=auto opacity=0.05  aux=[ ref=x3 emboss depth=30  elevation=30  ] mean-curvature-blur iterations=2 id=x4 gimp:layer-mode layer-mode=softlight composite-mode=auto aux=[ ref=x4 sinus x-scale=208.02 y-scale=208.02 complexity=1.012 seed=2050109389 tiling=yes perturbation=yes color1=#8c8c8c color2=#000000 blend-mode=bilinear blend-power=1.905 opacity value=1.2 ]   "\
 
 
 #define g12 \
@@ -383,7 +383,7 @@ static void attach (GeglOperation *operation)
   gegl_operation_meta_redirect (operation, "saturation",  state->saturation, "scale");
   gegl_operation_meta_redirect (operation, "lightness",  state->light, "lightness");
 
-} 
+}
 
 static void update_graph (GeglOperation *operation)
 {
