@@ -106,11 +106,11 @@ Check which numbers correspond to what g graph
 
 
 #define g15 \
-" id=containall src aux=[ ref=containall color-overlay value=#00dfff cubism tile-size=10 seed=383 median-blur abyss-policy=none radius=11 id=1 gimp:layer-mode layer-mode=hardlight opacity=0.25 aux=[  ref=1 emboss depth=20 denoise-dct sigma=35 ] lb:threshold-alpha id=2 over aux=[ ref=2 lb:glassovertext azimuth=33 depth=19   ] lb:edgesmooth value=2 id=3 gimp:layer-mode layer-mode=replace opacity=0.09 aux=[ ref=3 color-to-alpha color=#0ee2fd ] ] crop denoise-dct sigma=4 median-blur abyss-policy=none radius=0-dct sigma=4 median-blur abyss-policy=none radius=0    "\
+"  id=containall src aux=[ ref=containall color-overlay value=#00dfff cubism tile-size=10 seed=383 median-blur abyss-policy=none radius=11 id=1 gimp:layer-mode layer-mode=hardlight opacity=0.25 aux=[  ref=1 emboss depth=20 denoise-dct sigma=35 ] lb:threshold-alpha id=2 over aux=[ ref=2 lb:glassovertext azimuth=33 depth=19   ] lb:edgesmooth value=2 id=3 gimp:layer-mode layer-mode=replace opacity=0.09 aux=[ ref=3 color-to-alpha color=#0ee2fd ] ] crop denoise-dct sigma=4 median-blur abyss-policy=none radius=0  median-blur abyss-policy=none radius=0    "\
 
 
 #define g16 \
-" id=containall src aux=[ ref=containall color-overlay value=#00dfff cubism tile-size=12 seed=683 median-blur abyss-policy=none radius=11 id=1 gimp:layer-mode layer-mode=hardlight opacity=0.25 aux=[  ref=1 emboss depth=20 denoise-dct sigma=35 ] lb:threshold-alpha id=2 over aux=[ ref=2 lb:glassovertext azimuth=33 depth=19   ] lb:edgesmooth value=2 id=3 gimp:layer-mode layer-mode=replace opacity=0.09 aux=[ ref=3 color-to-alpha color=#0ee2fd ] ] crop denoise-dct sigma=4 median-blur abyss-policy=none radius=0-dct sigma=4 median-blur abyss-policy=none radius=0  "\
+" id=containall src aux=[ ref=containall color-overlay value=#00dfff cubism tile-size=12 seed=683 median-blur abyss-policy=none radius=11 id=1 gimp:layer-mode layer-mode=hardlight opacity=0.25 aux=[  ref=1 emboss depth=20 denoise-dct sigma=35 ] lb:threshold-alpha id=2 over aux=[ ref=2 lb:glassovertext azimuth=33 depth=19   ] lb:edgesmooth value=2 id=3 gimp:layer-mode layer-mode=replace opacity=0.09 aux=[ ref=3 color-to-alpha color=#0ee2fd ] ] crop denoise-dct sigma=4 median-blur abyss-policy=none radius=0 median-blur abyss-policy=none radius=0  "\
 
 
 
@@ -120,7 +120,7 @@ Check which numbers correspond to what g graph
 
 
 #define g18 \
-"  color-overlay value=#ffffff cubism tile-size=8 seed=33 gaussian-blur abyss-policy=none clip-extent=false std-dev-x=3.5 std-dev-y-=3.5 dropshadow x=0 y=0 opacity=0.6  "\
+" color-overlay value=#ffffff cubism tile-size=8 seed=33 gaussian-blur abyss-policy=none clip-extent=false std-dev-x=3.5 std-dev-y=3.5 dropshadow x=0 y=0 opacity=0.6  "\
 
 #define g19 \
 " color-overlay value=white gaussian-blur std-dev-x=12 std-dev-y=12 id=1 hard-light  aux=[ ref=1 emboss depth=30 elevation=20 ] cubism tile-size=5 opacity value=2.6 lb:threshold-alpha median-blur radius=0 cubism tile-size=5 id=2 over aux=[ ref=2] shift shift=2 shift shift=2 direction=vertical gimp:threshold-alpha id=3 multiply aux=[ ref=3 noise-rgb red=0 green=0 blue=0 opacity value=3  ] id=replace gimp:layer-mode layer-mode=replace opacity=0.80 aux=[ ref=replace lb:edgesmooth gaus=2 value=1 alpha-percentile2=90 ] gaussian-blur std-dev-x=0.5 std-dev-y=0.50 median-blur radius=0 id=6 gimp:layer-mode layer-mode=difference blend-space=rgb-perceptual opacity=0.30 composite-mode=auto aux=[ ref=6 image-gradient output-mode=magnitude  ] ripple amplitude=1.19 period=19 phi=-02 angle=0 sampler-type=cubic wave-type=sine abyss-policy=clamp tileable=yes id=7 over aux=[ ref=7 softglow opacity value=0.2  ] id=8 gimp:layer-mode layer-mode=behind opacity=0.14 aux=[ ref=8 lb:skeleton xstretch=0.68 ystretch=0.6 internalcubism=1.6 seed=1992011 color=#ffffff ] levels out-low=0.011 "\
