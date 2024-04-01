@@ -14,7 +14,7 @@
  * License along with GEGL; if not, see <https://www.gnu.org/licenses/>.
  *
  * Copyright 2006 Øyvind Kolås <pippin@gimp.org>
- * 2023 Beaver (GEGL sharp bevel) 
+ * 2023 Beaver (GEGL sharp bevel)
  */
 
 #include "config.h"
@@ -23,13 +23,13 @@
 #ifdef GEGL_PROPERTIES
 
 /*
-THIS FILTER IS NOT A CLONE OF CUSTOM BEVEL. IT IS A HEAVY MODIFICATION TO IT THAT MAKES AN ORIGINAL BEVEL EFFECT. 
+THIS FILTER IS NOT A CLONE OF CUSTOM BEVEL. IT IS A HEAVY MODIFICATION TO IT THAT MAKES AN ORIGINAL BEVEL EFFECT.
 This plugin is very resource intensive because I was going towards quality.
 
-The sharp bevel graph recreation. You can change hardlight to other blend modes. 
+The sharp bevel graph recreation. You can change hardlight to other blend modes.
 If you feed this to Gimp's GEGL Graph filter you can get a static preview of this filter without installing it.
 
-This requires another plugin of mine lb:threshold-alpha that is included. 
+This requires another plugin of mine lb:threshold-alpha that is included.
 
 Both Median Blur radius=6's and neighborhood are meant to update together and they can't do this in a graph.
 
@@ -41,13 +41,13 @@ median-blur radius=6 neighborhood=diamond
 id=color
 id=originalbg
 median-blur radius=6 neighborhood=diamond
-distance-transform 
+distance-transform
 denoise-dct sigma=10
 median-blur radius=0
 color-to-alpha color=#000000
 id=0 gimp:layer-mode layer-mode=lighten-only  aux=[ ref=0 emboss azimuth=83 depth=63 ]
 opacity value=2.5
-median-blur radius=0 
+median-blur radius=0
 lb:threshold-alpha
 gegl:gray hue-chroma lightness=3
 #gimp:layer-mode layer-mode=burn composite-mode=auto opacity=0.95 aux=[ layer src=/home/USERNAME/Pictures/Magic/3_angular_w2aves.png ]
@@ -55,19 +55,19 @@ multiply aux=[ ref=originalbg ]
 lb:edgesmooth alpha-percentile2=100 gaus=0.8
 lb:threshold-alpha
 
-END OF GRAPH 1, 
+END OF GRAPH 1,
 
-GRAPH 2 - WITH THE CHECKBOX FOR COLOR PRIORITY 
+GRAPH 2 - WITH THE CHECKBOX FOR COLOR PRIORITY
 
 median-blur radius=6 neighborhood=diamond
-distance-transform 
+distance-transform
 denoise-dct sigma=10
 median-blur radius=0
 color-to-alpha color=#000000
 color-overlay value=#ff00f6
 id=0 gimp:layer-mode layer-mode=lighten-only  aux=[ ref=0 emboss azimuth=83 depth=63 ]
 opacity value=2.5
-median-blur radius=0 
+median-blur radius=0
 lb:threshold-alpha
 lb:edgesmooth alpha-percentile2=100 gaus=0.8
 lb:threshold-alpha
@@ -269,7 +269,7 @@ default: usethis = state->hardlight;
   gegl_node_link_many (state->nop, state->emboss,  NULL);
 /* Emboss is being put inside a blend mode of the users choice. */
   gegl_node_connect (state->multiply2, "aux", state->imagefileoverlay, "output");
-/* Image file overlay is being fused with the multiply blend mode. */ 
+/* Image file overlay is being fused with the multiply blend mode. */
   }
 
 
@@ -284,7 +284,7 @@ else
 /* Image file overlay is being fused with the multiply blend mode. */
   gegl_node_connect (state->multiply3, "aux", state->idref, "output");
 /*The idref node is a nop that was placed very early in the graph
-to bookmark the original gimp layer content. Now it is being recalled 
+to bookmark the original gimp layer content. Now it is being recalled
 to grab image data that will be median blurred and multiply blended on
 a white bevel so that the bevel can maintain the images color.
 
@@ -321,7 +321,7 @@ GeglProperties *o = GEGL_PROPERTIES (operation);
 
 
  /*"Fix"is a critical operation for Gimp's non-destructive future.
-A median blur at zero radius is confirmed to make no changes to an image. 
+A median blur at zero radius is confirmed to make no changes to an image.
 This option resets gegl:opacity's value to prevent many bugs.
 plugins like clay, glossy balloon and custom bevel glitch out when
 drop shadow is applied in a gegl graph below them. median 0 solves this.*/
@@ -462,7 +462,7 @@ Though I must clarify that I went much further with it. */
 
  /*This is the replace blend mode for GEGL that shows the emboss alone. Emboss alone behaves like an alt multiply blend mode suited for image file overlays*/
   embossblend   = gegl_node_new_child (gegl,
-                                  "operation", "gegl:src", 
+                                  "operation", "gegl:src",
                                   NULL);
 
 
@@ -486,7 +486,7 @@ softlight = gegl_node_new_child (gegl,
  /*As of now (july 2023) Gimp's addition blend mode is 33, if Gimp ever gets new blend modes this will break and it will either be 32-34 or some other number. Future GEGL maintainers
 need to know this.*/
 addition = gegl_node_new_child (gegl,
-                                  "operation", "gimp:layer-mode", "layer-mode", 33, "composite-mode", 1, NULL); 
+                                  "operation", "gimp:layer-mode", "layer-mode", 33, "composite-mode", 1, NULL);
 
  /*THIS (multiply2) USES GIMP'S LEGACY MULTIPLY BLEND MODE. In early development it called gegl:multiply but it was switched later*/
 
@@ -494,7 +494,7 @@ addition = gegl_node_new_child (gegl,
  /*As of now (july 2023) Gimp's legacy multiply blend mode is 3, if Gimp ever gets new blend modes this will break and it will either be 2-4 or some other number. Future GEGL maintainers
 need to know this.*/
 multiply2 = gegl_node_new_child (gegl,
-                              "operation", "gimp:layer-mode", "layer-mode", 3, "blend-space", 1, "composite-mode", 0, NULL);
+                              "operation", "gimp:layer-mode", "layer-mode", 30, "blend-space", 1, "composite-mode", 0, NULL);
 
 
 
