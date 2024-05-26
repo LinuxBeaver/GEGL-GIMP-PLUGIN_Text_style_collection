@@ -17,10 +17,10 @@
  * 2022 Edge Smooth
  */
 
-/*  
+/*
 Rough Recreation of GEGL Graph. This may not be 100% accurate but it is good enough. Using
 this method you can run the filter without installing it.
- 
+
 id=1  gegl:over aux=[ ref=1  xor aux=[   median-blur radius=2.4 alpha-percentile=2 ]
 
 id=2  gegl:dst-atop aux=[  ref=2 median-blur radius=2 alpha-percentile=-1 gaussian-blur std-dev-x=2 std-dev-y=2 opacity value=2.7 median-blur radius= percentile=2  alpha-percentile=73  ]
@@ -91,8 +91,8 @@ static void attach (GeglOperation *operation)
                                   "operation", "gegl:median-blur", "radius", 0, "abyss-policy",     GEGL_ABYSS_NONE,
                                   NULL);
 
-/*  
-This "fixgraph" is for Gimp's non-destructive future. Median Blur at 0 makes no modifications to an image but solves a 
+/*
+This "fixgraph" is for Gimp's non-destructive future. Median Blur at 0 makes no modifications to an image but solves a
 bug by resetting gegl opacity. egl:opacity adjust the global opacity of an image; resulting in filters like "drop shadow" behaving
 in a damaged way because there global opacity is way to high. Median blur radius=0 resets its global opacity.
  */
@@ -117,13 +117,12 @@ in a damaged way because there global opacity is way to high. Median blur radius
 
 gegl_node_link_many(input, graph, behind, fixgraph, output, NULL);
 gegl_node_link_many(input,  median, gaussian, opacity, median2,  NULL);
-gegl_node_connect (behind, "aux", median2, "output"); 
+gegl_node_connect (behind, "aux", median2, "output");
 
   gegl_operation_meta_redirect (operation, "gaus", gaussian, "std-dev-x");
   gegl_operation_meta_redirect (operation, "gaus", gaussian, "std-dev-y");
   gegl_operation_meta_redirect (operation, "alpha_percentile2", median2, "alpha-percentile");
   gegl_operation_meta_redirect (operation, "value", opacity, "value");
-  gegl_operation_meta_redirect (operation, "string", graph, "string");
 }
 
 static void
