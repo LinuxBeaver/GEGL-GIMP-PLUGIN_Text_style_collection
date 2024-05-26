@@ -21,7 +21,7 @@
 June 25 2023 GEGL Graph recreation of plugin.
 
 gray
-id=1 hard-light aux=[ ref=1 emboss 
+id=1 hard-light aux=[ ref=1 emboss
 gaussian-blur std-dev-x=0 std-dev-y=0
 opacity value=1
 unsharp-mask scale=0
@@ -264,7 +264,7 @@ GeglProperties *o = GEGL_PROPERTIES (operation);
 
 
   gaussian    = gegl_node_new_child (gegl,
-                                  "operation", "gegl:gaussian-blur", "clip-extent", FALSE,   "abyss-policy", 0,                    
+                                  "operation", "gegl:gaussian-blur",
    "filter", 1,
                                   NULL);
 
@@ -305,10 +305,10 @@ softlight = gegl_node_new_child (gegl,
 
 
 addition = gegl_node_new_child (gegl,
-                                  "operation", "gimp:layer-mode", "layer-mode", 33, "composite-mode", 1, NULL); 
+                                  "operation", "gimp:layer-mode", "layer-mode", 33, "composite-mode", 1, NULL);
 
   embossblend   = gegl_node_new_child (gegl,
-                                  "operation", "gegl:emboss", 
+                                  "operation", "gegl:emboss",
                                   NULL);
 
 
@@ -324,16 +324,10 @@ addition = gegl_node_new_child (gegl,
   gegl_operation_meta_redirect (operation, "depth", emboss, "depth");
   gegl_operation_meta_redirect (operation, "src", imagefileoverlay, "src");
   gegl_operation_meta_redirect (operation, "lightness", lightness, "lightness");
-  gegl_operation_meta_redirect (operation, "hue", lightness, "hue");
-  gegl_operation_meta_redirect (operation, "opacity", opacity, "value");
   gegl_operation_meta_redirect (operation, "mcb", mcb, "iterations");
   gegl_operation_meta_redirect (operation, "sharpen", sharpen, "scale");
-  gegl_operation_meta_redirect (operation, "desat", desat, "scale");
   gegl_operation_meta_redirect (operation, "coloroverlay", col, "value");
   gegl_operation_meta_redirect (operation, "denoise", dn, "sigma");
-
-
-
 
   gegl_node_link_many (input, gray, emboss, gaussian, opacity, mcb, sharpen, multiply2, nop, mcol, lightness, dn, output,  NULL);
   gegl_node_connect (hardlight, "aux", emboss, "output");
@@ -399,4 +393,3 @@ GeglOperationMetaClass *operation_meta_class = GEGL_OPERATION_META_CLASS (klass)
 }
 
 #endif
-
