@@ -349,7 +349,7 @@ drop shadow is applied in a gegl graph below them. median 0 solves this.*/
 /* This is a dependency I made to remove edge puff or semi transparent artifact around edges. In this case it is removing artfifact around the bevel.  */
 
   edgesmooth    = gegl_node_new_child (gegl,
-                                  "operation", "lb:edgesmooth", "alphapercentile2", 100, "gaus", 0.7,
+                                  "operation", "lb:edgesmooth", "gaus", 0.7,
                                   NULL);
 /* This is a dependency I made to smooth edges. In this case it is smoothing edges of the bevel */
 
