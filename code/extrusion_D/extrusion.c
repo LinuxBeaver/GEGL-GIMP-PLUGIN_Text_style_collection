@@ -14,25 +14,25 @@
  * License along with GEGL; if not, see <https://www.gnu.org/licenses/>.
  *
  * Copyright 2006 Øyvind Kolås <pippin@gimp.org>
- * 2022 Beaver (GEGL extrusion) 
+ * 2022 Beaver (GEGL extrusion)
  */
 
 /*
 
 GEGL Graph reconstruction. This may not be 100% accurate but is a rough GEGL Graph of this plugim.  If you run this in Gimp's
-GEGL Graph filter you can test this plugin without installing it.  LB EDGE SMOOTH AND LB BEVEL IS ANOTHER PLUGIN OF MINE. So 
+GEGL Graph filter you can test this plugin without installing it.  LB EDGE SMOOTH AND LB BEVEL IS ANOTHER PLUGIN OF MINE. So
 withot them you can't run this.
 
 lb:edgesmooth
 
 id=1 dst-over aux=[ ref=1 motion-blur-zoom factor=0.06 center-x=-0.24 center-y=0.14 id=2 multiply aux=[ ref=2 lb:bevel    ]
 
-gimp:threshold-alpha 
+gimp:threshold-alpha
 
 
 median-blur radius=4
 
-hue-chroma lightness=0 
+hue-chroma lightness=0
 
 lb:edgesmooth
 
@@ -109,7 +109,7 @@ typedef struct
   GeglNode *opacity;
   GeglNode *behind;
   GeglNode *output;
-} State; 
+} State;
 
 
 static void attach (GeglOperation *operation)
@@ -158,7 +158,7 @@ static void attach (GeglOperation *operation)
                                   NULL);
 
    alpha = gegl_node_new_child (gegl,
-                                  "operation", "gimp:threshold-alpha", "value", 1.08,
+                                  "operation", "gimp:threshold-alpha", "value", 0.5,
                                   NULL);
 
    brightness = gegl_node_new_child (gegl,
@@ -166,7 +166,7 @@ static void attach (GeglOperation *operation)
                                   NULL);
 
   median = gegl_node_new_child (gegl,
-                                  "operation", "gegl:median-blur", "radius", 1.0, "percentile", 50.0, "abyss-policy",     GEGL_ABYSS_NONE,
+                                  "operation", "gegl:median-blur", "radius", 1, "percentile", 50.0, "abyss-policy",     GEGL_ABYSS_NONE,
                                   NULL);
 
   chroma = gegl_node_new_child (gegl,
@@ -191,8 +191,8 @@ static void attach (GeglOperation *operation)
 /* Original graph that isn't needed anymore. This graph can't use blend mode switchers.
 
   gegl_node_link_many (input, zmb, nop, multiply, alpha, nop2, screen, median, nr, chroma, brightness, edgesmoothend, output, NULL);
-  gegl_node_connect (multiply, "aux", bevel, "output"); 
-  gegl_node_connect (screen, "aux", opacity, "output"); 
+  gegl_node_connect (multiply, "aux", bevel, "output");
+  gegl_node_connect (screen, "aux", opacity, "output");
   gegl_node_link_many (nop, bevel, NULL);
   gegl_node_link_many (nop2, edge, opacity, NULL);
  */
@@ -200,14 +200,10 @@ static void attach (GeglOperation *operation)
 
 
   gegl_operation_meta_redirect (operation, "exposure", brightness, "exposure");
-  gegl_operation_meta_redirect (operation, "black_level", brightness, "black-level");
   gegl_operation_meta_redirect (operation, "factor", zmb, "factor");
   gegl_operation_meta_redirect (operation, "center_x", zmb, "center-x");
   gegl_operation_meta_redirect (operation, "center_y", zmb, "center-y");
   gegl_operation_meta_redirect (operation, "depth", bevel, "bevel2");
-  gegl_operation_meta_redirect (operation, "opacity", opacity, "value");
-
-
 
 /* now save references to the gegl nodes so we can use them
    * later, when update_graph() is called
@@ -246,10 +242,10 @@ update_graph (GeglOperation *operation)
   {
 /*The main GEGL Graph and behind blend mode that everything is inside */
   gegl_node_link_many (state->input, state->edgesmoothbegin, state->behind, state->output, NULL);
-  gegl_node_connect (state->behind, "aux", state->edgesmoothend, "output"); 
+  gegl_node_connect (state->behind, "aux", state->edgesmoothend, "output");
   gegl_node_link_many (state->input, state->zmb, state->nop, state->multiply, state->alpha, state->median,  state->brightness, state->edgesmoothend, NULL);
 /*Multiply connects to bevel */
-  gegl_node_connect (state->multiply, "aux", state->bevel, "output"); 
+  gegl_node_connect (state->multiply, "aux", state->bevel, "output");
   gegl_node_link_many (state->nop, state->bevel, NULL);
   }
   else
