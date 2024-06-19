@@ -65,7 +65,6 @@ property_double (center_y, _("Center Y"), -1.4)
 
 property_double (factor, _("Length of extrusion"), 0.009)
     description (_("Increase the length of the extrusion using an internal zoom motion blur. Due to the nature of Zoom Motion Blur depending where your image is on canvas will effect the image."))
-    value_range (0, 0.180)
     ui_range    (0, 0.051)
     ui_gamma    (2.0)
 
@@ -76,7 +75,6 @@ property_int (depth, _("Increase roughness"), 14)
 
 property_double (exposure, _("Darkness to light"), -1.40)
     description (_("Exposure lighting setting"))
-  value_range (-3, 0.8)
     ui_range    (-3, 0.8)
 
 
