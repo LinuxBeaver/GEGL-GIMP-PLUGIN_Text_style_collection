@@ -160,7 +160,7 @@ static void attach (GeglOperation *operation)
                                   "operation", "gegl:nop", 
                                   NULL);
 #define sixteenrings \
-" id=contain src aux=[ ref=contain  id=1 dst-out aux=[ ref=1 median-blur radius=5 alpha-percentile=0 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 ]    "\
+" id=contain src aux=[ ref=contain  id=1 dst-out aux=[ ref=1 median-blur radius=5 alpha-percentile=0 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 ssg radius=0 stroke=2 ] crop   "\
 
 
   state->crazy = gegl_node_new_child (gegl,
