@@ -59,7 +59,7 @@ property_double (glow, _("Glow effect on water"), 40.0)
    ui_gamma    (3.0)
 
 
-property_color  (color, _("Color Overlay"), "#c3eaff")
+property_color  (color, _("Color Overlay"), "#58bbf1")
     description (_("Color of 'Ocean Surface'. Color is blended with an internal linear burn."))
 
 property_double (coloropacity, _("Opacity of Color"), 1.00)
@@ -89,7 +89,7 @@ static void attach (GeglOperation *operation)
                                   NULL);
 
   median = gegl_node_new_child (gegl,
-                                  "operation", "gegl:median-blur", "radius", 0,  "abyss-policy",     GEGL_ABYSS_NONE,    
+                                  "operation", "gegl:median-blur", "radius", 0, 
                                   NULL);
 #define whitecolor \
 " color value=white  "\
