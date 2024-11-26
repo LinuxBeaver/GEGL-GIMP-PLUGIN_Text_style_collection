@@ -217,6 +217,7 @@ typedef struct
   GeglNode *hardlight;
   GeglNode *multiply;
   GeglNode *colordodge;
+  GeglNode *cropimage;
   GeglNode *emboss;
   GeglNode *plus;
   GeglNode *darken;
@@ -297,7 +298,7 @@ static void attach (GeglOperation *operation)
 {
   GeglNode *gegl = operation->node;
 GeglProperties *o = GEGL_PROPERTIES (operation);
-  GeglNode *input, *output, *fix, *fix2, *fix3, *smooth, *allowblack, *edgesmooth, *multiply3, *multiply4, *multiply5, *sharpen, *levels, *idref, *graph, *ta2, *ta2again, *opacity, *multiply, *dt, *c2a, *multiply2,  *imagefileoverlay, *median, *hardlight, *emboss,  *embossblend, *addition, *colordodge, *grainmerge, *softlight, *overlay, *darken, *lighten,  *col, *nop, *plus;
+  GeglNode *input, *output, *fix, *fix2, *fix3, *smooth, *allowblack, *cropimage, *edgesmooth, *multiply3, *multiply4, *multiply5, *sharpen, *levels, *idref, *graph, *ta2, *ta2again, *opacity, *multiply, *dt, *c2a, *multiply2,  *imagefileoverlay, *median, *hardlight, *emboss,  *embossblend, *addition, *colordodge, *grainmerge, *softlight, *overlay, *darken, *lighten,  *col, *nop, *plus;
   GeglColor *embeddedcolorbevel2 = gegl_color_new ("#000000");
 /* This is an embedded color (black) */
 
@@ -361,7 +362,7 @@ drop shadow is applied in a gegl graph below them. median 0 solves this.*/
 
 
   imagefileoverlay    = gegl_node_new_child (gegl,
-                                  "operation", "gegl:layer",
+                                  "operation", "port:load",
                                   NULL);
 /* GEGL layer is best used for image file overlays */
 
@@ -373,7 +374,9 @@ drop shadow is applied in a gegl graph below them. median 0 solves this.*/
                                   "operation", "gegl:unsharp-mask",
                                   NULL);
 
-
+  cropimage    = gegl_node_new_child (gegl,
+                                  "operation", "gegl:crop",
+                                  NULL);
 
   nop    = gegl_node_new_child (gegl,
                                   "operation", "gegl:nop",
@@ -535,6 +538,7 @@ multiply2 = gegl_node_new_child (gegl,
   state->dt = dt;
   state->smooth = smooth;
   state->fix = fix;
+  state->cropimage = cropimage;
   state->fix3 = fix3;
   state->sharpen = sharpen;
   state->c2a = c2a;
