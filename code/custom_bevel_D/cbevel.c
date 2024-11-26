@@ -400,9 +400,9 @@ GeglProperties *o = GEGL_PROPERTIES (operation);
                                   "operation", "gegl:box-blur",
                                   NULL);
 
- /*gegl:layer is the only way to do image file overlays*/
+ /*port:load is the only way to do image file overlays*/
   imagefileoverlay    = gegl_node_new_child (gegl,
-                                  "operation", "gegl:layer",
+                                  "operation", "port:load",
                                   NULL);
 
   lightness    = gegl_node_new_child (gegl,
