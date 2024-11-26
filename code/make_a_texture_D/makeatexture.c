@@ -275,7 +275,7 @@ GeglProperties *o = GEGL_PROPERTIES (operation);
 
 
   imagefileoverlay    = gegl_node_new_child (gegl,
-                                  "operation", "gegl:layer",
+                                  "operation", "port:load",
                                   NULL);
 
   lightness    = gegl_node_new_child (gegl,
