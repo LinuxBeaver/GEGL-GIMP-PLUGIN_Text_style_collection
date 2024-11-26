@@ -138,7 +138,7 @@ static void attach (GeglOperation *operation)
 
 
   image   = gegl_node_new_child (gegl,
-                                  "operation", "gegl:layer",
+                                  "operation", "port:load",
                                   NULL);
 
 
