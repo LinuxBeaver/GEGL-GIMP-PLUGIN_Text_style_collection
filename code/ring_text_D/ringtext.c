@@ -61,7 +61,7 @@ enum_start (ring_text)
               N_("Five Rings (two and a half structures)"))
   enum_value (sixrings,      "sixrings",
               N_("Six Rings (three structures)"))
-  enum_value (absurd,      "sixrings",
+  enum_value (absurd,      "sixteen",
               N_("Non editable - 16 Rings (8 structures)"))
 enum_end (ringtext)
 /* This ENUM list has a unique name to avoid conflicts with other plugins or Gimp filters*/
@@ -100,6 +100,7 @@ property_enum (ringshape, _("Shape of ring"),
 property_string (syntax, _(""), ANYTHINGGOESHERE)
     ui_meta ("multiline", "true")
   description (_("This plugin provides GEGL syntax to insert in this box. Syntax can do crazy things like make the rings gold. But the syntax needs my other plugins that do NOT ship with this. On the download page of this plugin their will be links to the download of other unrelated plugins Gold Text, Custom Bevel, Glossy Balloon ect... They are not needed for this plugin to work, but are needed to take advantage of the syntax I wrote to make the ringed bevel gold, balloon-esque or whatever. You are also free to write your own syntax to effect the ring text. Literally anything can go here."))
+    ui_meta     ("role", "output-extent")
 
 #define ANYTHINGGOESHERE \
 "#GEGL Syntax goes here"
@@ -160,7 +161,7 @@ static void attach (GeglOperation *operation)
                                   "operation", "gegl:nop", 
                                   NULL);
 #define sixteenrings \
-" id=contain src aux=[ ref=contain  id=1 dst-out aux=[ ref=1 median-blur radius=5 alpha-percentile=0 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 ssg radius=0 stroke=2 ] crop   "\
+" id=contain src aux=[ ref=contain  id=1 dst-out aux=[ ref=1 median-blur radius=5 alpha-percentile=0 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 lb:ssg radius=0 stroke=2 ] crop   "\
 
 
   state->crazy = gegl_node_new_child (gegl,
