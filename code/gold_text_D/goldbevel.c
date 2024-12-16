@@ -103,7 +103,7 @@ property_double (huerotate, _("Hue Rotation -0 resets"),  0.0)
    description  (_("Hue rotation -  0 resets. This will hue rotate everything in the gold bevel to make it an alternative color."))
    value_range  (-180.0, 180.0)
 
-property_double (desaturate, _("Saturation of Gold Bevel"),  2.0)
+property_double (desaturate, _("Saturation of Gold Bevel"),  1.7)
    description  (_("Desaturate entirely for Silver Effect or just because you want to make the color less intense."))
    value_range  (0.0, 2.5)
 
