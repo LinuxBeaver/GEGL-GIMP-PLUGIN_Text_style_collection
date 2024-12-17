@@ -39,7 +39,8 @@ softglow
 
 #ifdef GEGL_PROPERTIES
 
-
+#define TUTORIALG \
+" id=1 src  aux=[ ref=1 color ]  "\
 /* This GEGL Graph allows it to apply on transparent surfaces. When this filter was first released in Summer 2022 it required an opaque background. */
 
 property_double (saturation_distance, _("Add background Stars and enhance color"), 0.035)
@@ -89,7 +90,7 @@ property_double (factor, _("Zoom Motion Blur"), 0.00)
 static void attach (GeglOperation *operation)
 {
   GeglNode *gegl = operation->node;
-  GeglNode *input, *output, *graph, *color, *noise, *invert, *levels, *gamma, *blur, *glow, *saturation, *zmb;
+  GeglNode *input, *output, *graph, *crop, *color, *noise, *invert, *levels, *gamma, *blur, *glow, *saturation, *zmb;
 
   input    = gegl_node_get_input_proxy (gegl, "input");
   output   = gegl_node_get_output_proxy (gegl, "output");
@@ -100,9 +101,6 @@ static void attach (GeglOperation *operation)
                                   "operation", "gegl:color-overlay",
                                    "value", starcolor, NULL);
        
-
-#define TUTORIALG \
-" id=1 src  aux=[ ref=1 distance-transform ]  "\
 
   graph = gegl_node_new_child (gegl,
                                   "operation", "gegl:gegl", "string", TUTORIALG,
@@ -137,6 +135,11 @@ static void attach (GeglOperation *operation)
                                   "operation", "gegl:softglow",
                                   NULL);
 
+  crop = gegl_node_new_child (gegl,
+                                  "operation", "gegl:crop",
+                                  NULL);
+
+
   zmb = gegl_node_new_child (gegl,
                                   "operation", "gegl:motion-blur-zoom",
                                   NULL);
@@ -152,8 +155,8 @@ static void attach (GeglOperation *operation)
     gegl_operation_meta_redirect (operation, "factor", zmb, "factor");
 
 
-  gegl_node_link_many (input, graph, color, noise, invert, levels, gamma, blur, glow, saturation, zmb, output, NULL);
-
+  gegl_node_link_many (input, graph, crop, color, noise, invert, levels, gamma, blur, glow, saturation, zmb, output, NULL);
+  gegl_node_connect (crop, "aux", input, "output");
 
 
 
