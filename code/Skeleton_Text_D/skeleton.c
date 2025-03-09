@@ -70,7 +70,7 @@ color-to-alpha color=black
 
 
 #define SKELETON_TEXT_MAIN \
-" color-overlay value=white lb:threshold-alpha id=contain over aux=[ ref=contain median-blur radius=0 cubism tile-size=10 distance-transform median-blur abyss-policy=none radius=0 alpha-percentile=10 neighborhood=diamond median-blur radius=0 ] crop id=legacy gimp:layer-mode layer-mode=hardlight-legacy aux=[ ref=legacy shadows-highlights shadows=100 highlights=-95 whitepoint=-10 radius=33.562 compress=31.1 shadows-ccorrect=54.1 highlights-ccorrect=20.5 ] difference-of-gaussians radius1=0 radius2=2.5 median-blur abyss-policy=none radius=0 color-to-alpha color=black opacity value=3 "\
+" color-overlay value=white lb:threshold-alpha id=contain over aux=[ ref=contain median-blur radius=0 cubism tile-size=10 distance-transform median-blur abyss-policy=none radius=0 alpha-percentile=10 neighborhood=diamond median-blur radius=0 ] crop id=legacy gimp:layer-mode layer-mode=hardlight-legacy aux=[ ref=legacy shadows-highlights shadows=100 highlights=-95 whitepoint=-10 radius=33 compress=31 shadows-ccorrect=54 highlights-ccorrect=20 ] difference-of-gaussians radius1=0 radius2=2.5 median-blur abyss-policy=none radius=0 color-to-alpha color=black opacity value=3 "\
 
 property_double (xstretch, _("Crunch Skeleton X"), 0.0)
    description  (_("Internal gaussian blur to control the skeletal text"))
