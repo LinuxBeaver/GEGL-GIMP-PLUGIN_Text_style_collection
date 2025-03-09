@@ -70,7 +70,7 @@ color-to-alpha color=black
 
 
 #define SKELETON_TEXT_MAIN \
-" color-overlay value=white lb:threshold-alpha id=contain over aux=[ ref=contain median-blur  abyss-policy=none radius=0 cubism tile-size=10 distance-transform median-blur abyss-policy=none radius=0 alpha-percentile=10 neighborhood=diamond median-blur abyss-policy=none radius=0 ] id=legacy gimp:layer-mode layer-mode=hardlight-legacy aux=[ ref=legacy shadows-highlights shadows=100 highlights=-95 whitepoint=-10 radius=33.560000000000002 compress=31.800000000000001 shadows-ccorrect=54.390000000000001 highlights-ccorrect=20.5 ] difference-of-gaussians radius1=0 radius2=2.5 median-blur abyss-policy=none radius=0 color-to-alpha color=black opacity value=3 "\
+" color-overlay value=white lb:threshold-alpha id=contain over aux=[ ref=contain median-blur radius=0 cubism tile-size=10 distance-transform median-blur abyss-policy=none radius=0 alpha-percentile=10 neighborhood=diamond median-blur radius=0 ] crop id=legacy gimp:layer-mode layer-mode=hardlight-legacy aux=[ ref=legacy shadows-highlights shadows=100 highlights=-95 whitepoint=-10 radius=33.560000000000002 compress=31.800000000000001 shadows-ccorrect=54.390000000000001 highlights-ccorrect=20.5 ] difference-of-gaussians radius1=0 radius2=2.5 median-blur abyss-policy=none radius=0 color-to-alpha color=black opacity value=3 "\
 
 property_double (xstretch, _("Crunch Skeleton X"), 0.0)
    description  (_("Internal gaussian blur to control the skeletal text"))
@@ -124,7 +124,7 @@ static void attach (GeglOperation *operation)
                                   NULL);
 
    gaussian   = gegl_node_new_child (gegl,
-                                  "operation", "gegl:gaussian-blur",     "abyss-policy", 0,  "clip-extent", FALSE,   
+                                  "operation", "gegl:gaussian-blur",  "abyss-policy", 0,  "clip-extent", 0,   
                                   NULL);
 
    color   = gegl_node_new_child (gegl,
@@ -132,7 +132,7 @@ static void attach (GeglOperation *operation)
                                   NULL);
 
    fix   = gegl_node_new_child (gegl,
-                                  "operation", "gegl:median-blur", "radius", 0,    "abyss-policy",     GEGL_ABYSS_NONE,
+                                  "operation", "gegl:median-blur", "radius", 0,    "abyss-policy",     0,
                                   NULL);
 
   gegl_operation_meta_redirect (operation, "xstretch", gaussian, "std-dev-x");
