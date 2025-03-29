@@ -577,13 +577,13 @@ GeglOperationMetaClass *operation_meta_class = GEGL_OPERATION_META_CLASS (klass)
 
   gegl_operation_class_set_keys (operation_class,
     "name",        "lb:sharpbevel",
-    "title",       _("Sharp Bevel"),
+    "title",       _("Sharp Chamfer Bevel"),
     "categories",  "Artistic",
     "reference-hash", "v76ao6gk4321vyeef625362f2ag",
-    "description", _("A heavy modification of my existing custom bevel plugin. GEGL makes a bevel allowing choice of bevel size, and internal blend modes.  Different blend modes do different things regarding detail, depth or presence of a shine effect."
+    "description", _("GEGL makes a chamfer bevel allowing choice of bevel size, and internal blend modes.  Different blend modes do different things regarding detail, depth or presence of a shine effect."
                      ""),
     "gimp:menu-path", "<Image>/Filters/Text Styling",
-    "gimp:menu-label", _("Sharp Bevel..."),
+    "gimp:menu-label", _("Sharp Chamfer Bevel..."),
     NULL);
 }
 
