@@ -487,7 +487,7 @@ GeglOperationMetaClass *operation_meta_class = GEGL_OPERATION_META_CLASS (klass)
     "reference-hash", "afgjaksharpa3rings",
     "description", _("Collection of Bevel/Bump algorithms that do not fit with any other plugin of mine or have not yet been properly converted into a full editable filter. All these filters have very limited editability and nothing unique. One day some of these bevel algorithms may be stand alone filters with complete editable options. Filters with the 'TO BLEND' option are meant to be used with 'blend modes/blending options'. "),
     "gimp:menu-path", "<Image>/Filters/Text Styling",
-    "gimp:menu-label", _("Misc Bevel Collection"),
+    "gimp:menu-label", _("Misc Bevel Collection..."),
     NULL);
 }
 
