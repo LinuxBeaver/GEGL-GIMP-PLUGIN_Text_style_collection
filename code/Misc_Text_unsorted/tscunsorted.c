@@ -512,7 +512,7 @@ GeglOperationMetaClass *operation_meta_class = GEGL_OPERATION_META_CLASS (klass)
     "reference-hash", "t2pysolsolitare349s",
     "description", _("Collection of Text Style algorithms that do not fit with any other plugin of mine or have not yet been properly converted into a full editable filter. All these filters have very limited editability and nothing unique. One day some of these algorithms may be stand alone filters with complete editable options.  "),
     "gimp:menu-path", "<Image>/Filters/Text Styling",
-    "gimp:menu-label", _("Misc Text Styling Collection (Unsorted Misc)"),
+    "gimp:menu-label", _("Misc Text Styling Collection (Unsorted Misc)..."),
     NULL);
 }
 
