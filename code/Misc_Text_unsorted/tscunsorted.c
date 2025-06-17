@@ -224,9 +224,9 @@ enum_start (niche_textrandom)
               N_("NO CONTENT YET"))
   enum_value (crazy24,      "crazy24",
               N_("NO CONTENT YET"))
-  enum_value (crazy25,      "crazy24",
+  enum_value (crazy25,      "crazy25",
               N_("NO CONTENT YET"))
-  enum_value (crazy26,      "crazy25",
+  enum_value (crazy26,      "crazy26",
               N_("NO CONTENT YET"))
 enum_end (nichetextrandom)
 
