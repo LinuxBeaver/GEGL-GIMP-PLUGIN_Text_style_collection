@@ -75,7 +75,7 @@ property_enum (medianshape, _("Choose Internal Median Shape"),
     ui_meta     ("role", "output-extent")
 
 
-property_double (expand, _("Expand Bevel"), 5)
+property_double (expand, _("Expand Bevel"), 2.5)
    description (_("Internal gaussian blur to increase the size of the gold bevel"))
    value_range (2.0, 11.0)
 
