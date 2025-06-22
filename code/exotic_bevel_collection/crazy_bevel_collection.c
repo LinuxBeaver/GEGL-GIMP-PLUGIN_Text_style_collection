@@ -55,7 +55,7 @@ Check which numbers correspond to what g graph
 
 
 #define g7 \
-" lb:ring lb:gold blendmode=colordodge expand=2.5720000000000001 elevation=10.0 medianradius=1 huerotate=0 desaturate=1.3999999999999999 light=1 "\
+" lb:ring lb:gold expand=5.0 blendmode=colordodge expand=2.5720000000000001 elevation=10.0 medianradius=1 huerotate=0 desaturate=1.3999999999999999 light=1 "\
 
 
 #define g8 \
