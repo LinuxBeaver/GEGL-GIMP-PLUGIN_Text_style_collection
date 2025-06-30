@@ -35,19 +35,23 @@ color-overlay value=#0fff00
 
 #ifdef GEGL_PROPERTIES
 
-property_double (edgeamount, _("Edge Amount"), 10)
-   description (_("Strength of Effect"))
-   value_range (3.0, 16.0)
-   ui_range    (3.0, 16.0)
+property_double (edgeamount, _("Edge Amount"), 1)
+   description (_("internal Edge detect amount"))
+   value_range (1.0, 16.0)
+   ui_range    (1.0, 16.0)
 
-
-property_double (threshold, _("Threshold"), 0.76)
+property_double (threshold, _("Threshold Value"), 0.19)
     value_range (-0.25, 0.90)
-    ui_range    (-0.25, 0.90)
-    description(_("Scalar threshold level (overridden if an auxiliary input buffer is provided.)."))
+    ui_range    (0.00, 0.60)
+    description(_("Threshold adjustment to thin the edge extract."))
+
+property_double (threshold2, _("Threshold High"), 1.0)
+    value_range (1.0, 10.0)
+    ui_range    (0.0, 10.0)
+    description(_("Highest value to be include as white within the internal threshold"))
 
 property_double (gaus, _("Blur"), 1.0)
-   description (_("Standard deviation (spatial scale factor)"))
+   description (_("Blur the edge extract"))
    value_range (0.5, 20.0)
    ui_range    (0.5, 20.0)
    ui_gamma    (3.0)
@@ -68,57 +72,50 @@ property_color (value, _("Color"), "#ffffff")
 static void attach (GeglOperation *operation)
 {
   GeglNode *gegl = operation->node;
-  GeglNode *input, *output, *gray, *edge, *threshold, *c2a, *invert, *vinvert, *color, *gaus;
 
-  input    = gegl_node_get_input_proxy (gegl, "input");
-  output   = gegl_node_get_output_proxy (gegl, "output");
+  GeglColor *listblack = gegl_color_new ("#000000");
+
+     GeglNode *input    = gegl_node_get_input_proxy (gegl, "input");
+     GeglNode *output   = gegl_node_get_output_proxy (gegl, "output");
 
 
-  gray = gegl_node_new_child (gegl,
+   GeglNode *gray = gegl_node_new_child (gegl,
                                   "operation", "gegl:gray",
                                   NULL);
 
 
-  edge = gegl_node_new_child (gegl,
+   GeglNode *edge = gegl_node_new_child (gegl,
                                   "operation", "gegl:edge",
                                   NULL);
 
 
-  threshold = gegl_node_new_child (gegl,
+   GeglNode *threshold = gegl_node_new_child (gegl,
                                   "operation", "gegl:threshold",
                                   NULL);
 
 
-  c2a = gegl_node_new_child (gegl,
-                                  "operation", "gegl:color-to-alpha",
-                                  NULL);
-
-   invert = gegl_node_new_child (gegl,
-                                  "operation", "gegl:invert",
+   GeglNode *c2a = gegl_node_new_child (gegl,
+                                  "operation", "gegl:color-to-alpha", "color", listblack,
                                   NULL);
 
 
-   vinvert = gegl_node_new_child (gegl,
-                                  "operation", "gegl:value-invert",
+    GeglNode *gaus = gegl_node_new_child (gegl,
+                                  "operation", "gegl:gaussian-blur", "abyss-policy", 0, "clip-extent", 0, 
                                   NULL);
 
 
-   gaus = gegl_node_new_child (gegl,
-                                  "operation", "gegl:gaussian-blur",
-                                  NULL);
-
-
-   color = gegl_node_new_child (gegl,
+    GeglNode *color = gegl_node_new_child (gegl,
                                   "operation", "gegl:color-overlay",
                                   NULL);
 
   gegl_operation_meta_redirect (operation, "edgeamount", edge, "amount");
   gegl_operation_meta_redirect (operation, "threshold", threshold, "value");
+  gegl_operation_meta_redirect (operation, "threshold2", threshold, "high");
   gegl_operation_meta_redirect (operation, "gaus", gaus, "std-dev-x");
   gegl_operation_meta_redirect (operation, "gaus", gaus, "std-dev-y");
   gegl_operation_meta_redirect (operation, "value", color, "value");
 
-  gegl_node_link_many (input, gray, edge, threshold, invert, c2a, gaus, vinvert, color, output, NULL);
+  gegl_node_link_many (input, gray, edge, threshold, c2a, gaus, color, output, NULL);
 }
 
 static void
@@ -133,9 +130,8 @@ gegl_op_class_init (GeglOpClass *klass)
   gegl_operation_class_set_keys (operation_class,
     "name",        "lb:edge-extract",
     "title",       _("Edge Extraction"),
-    "categories",  "Thirdpartyfilters",
     "reference-hash", "456j6bfghd60f4f65s52dac",
-    "description", _("Extract edges with the edge sobel algorithm and other things    "
+    "description", _("Extract edges with the edge sobel algorithm then blend it against the image"
                      ""),
     NULL);
 }
