@@ -81,8 +81,6 @@ Check which numbers correspond to what g graph
 #define g14 \
 "  color-overlay value=white gaussian-blur  abyss-policy=none  clip-extent=false std-dev-x=3 std-dev-y=3 emboss depth=20 gaussian-blur  abyss-policy=none  clip-extent=false std-dev-x=3 std-dev-y=3 emboss depth=20   "\
 
-#define g14 \
-"  color-overlay value=white  gaussian-blur  abyss-policy=none  clip-extent=false std-dev-x=3 std-dev-y=3 emboss depth=60 gaussian-blur std-dev-x=3 std-dev-y=3 emboss depth=60  "\
 
 
 #define g15 \
