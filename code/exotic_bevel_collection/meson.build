@@ -6,9 +6,9 @@ project('crazy_bevel_collection', 'c',
 # not the executables that use the library.
 lib_args = ['-DBUILDING_GEGLFILTER']
 
-gegl = dependency('gegl-0.3', required : false)
+gegl = dependency('gegl-0.4', required : false)
 if not gegl.found()
-    gegl = dependency('gegl-0.4')
+    gegl = dependency('gegl-0.5')
 endif
 shlib = shared_library('crazy_bevel_collection', 'crazy_bevel_collection.c', 'config.h',
   c_args : lib_args,
